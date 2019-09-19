@@ -1363,7 +1363,7 @@ MonoBehaviour:
   uiCamera: {fileID: 815516434}
   container: {fileID: 0}
   side: 4
-  runOnlyOnce: 1
+  runOnlyOnce: 0
   relativeOffset: {x: 0, y: 0}
   pixelOffset: {x: 0, y: 0}
   widgetContainer: {fileID: 0}

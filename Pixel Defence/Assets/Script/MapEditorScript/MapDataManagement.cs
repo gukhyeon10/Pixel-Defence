@@ -27,7 +27,6 @@ public class MapDataManagement : MonoBehaviour {
                 Destroy(child.gameObject);
             }
 
-
             XmlNodeList nodeList = xmlDoc.SelectNodes("MapInfo/Object");
             
             foreach (XmlNode node in nodeList)

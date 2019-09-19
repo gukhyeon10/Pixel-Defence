@@ -37,7 +37,11 @@ public class MapDataManagement : MonoBehaviour {
                                                float.Parse(node.SelectSingleNode("Y").InnerText),
                                                float.Parse(node.SelectSingleNode("Z").InnerText));
                 Vector3 rotation = new Vector3(0, float.Parse(node.SelectSingleNode("R").InnerText), 0);
-                
+
+                Vector3 scale = new Vector3(float.Parse(node.SelectSingleNode("ScaleX").InnerText),
+                                            float.Parse(node.SelectSingleNode("ScaleY").InnerText),
+                                            float.Parse(node.SelectSingleNode("ScaleZ").InnerText));
+
                 GameObject newObject = Instantiate(MapObject, position, Quaternion.identity);
                 newObject.name = newObject.name.Substring(0, newObject.name.Length - 7);
 
@@ -97,6 +101,18 @@ public class MapDataManagement : MonoBehaviour {
                 XmlElement rotation = xmlDoc.CreateElement("R");
                 rotation.InnerText = mapChildObject.eulerAngles.y.ToString();
                 childNode.AppendChild(rotation);
+
+                XmlElement scaleX = xmlDoc.CreateElement("ScaleX");
+                scaleX.InnerText = mapChildObject.localScale.x.ToString();
+                childNode.AppendChild(scaleX);
+
+                XmlElement scaleY = xmlDoc.CreateElement("ScaleY");
+                scaleY.InnerText = mapChildObject.localScale.y.ToString();
+                childNode.AppendChild(scaleY);
+
+                XmlElement scaleZ = xmlDoc.CreateElement("ScaleZ");
+                scaleZ.InnerText = mapChildObject.localScale.z.ToString();
+                childNode.AppendChild(scaleZ);
 
             }
             

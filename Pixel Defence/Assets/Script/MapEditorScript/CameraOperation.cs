@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraOperation : MonoBehaviour {
 
+
     Vector3 RotateGap;
     float rotLeftRight;
     float mouseSensitivity = 2f;
@@ -57,6 +58,7 @@ public class CameraOperation : MonoBehaviour {
 
 
         }
+        
 
     }
 

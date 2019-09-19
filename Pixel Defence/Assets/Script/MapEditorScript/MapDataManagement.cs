@@ -4,11 +4,10 @@ using UnityEngine;
 using UnityEditor;
 using System.Xml;
 
-public class MapDataManagement : MonoBehaviour
-{
+public class MapDataManagement : MonoBehaviour {
+
     [SerializeField]
     GameObject MapRoot;
-
 
     public void OpenLoadFile()     // 불러올 맵 파일 
     {
@@ -29,7 +28,6 @@ public class MapDataManagement : MonoBehaviour
             }
 
 
-
             XmlNodeList nodeList = xmlDoc.SelectNodes("MapInfo/Object");
             
             foreach (XmlNode node in nodeList)
@@ -41,6 +39,7 @@ public class MapDataManagement : MonoBehaviour
                 Vector3 rotation = new Vector3(0, float.Parse(node.SelectSingleNode("R").InnerText), 0);
                 
                 GameObject newObject = Instantiate(MapObject, position, Quaternion.identity);
+                newObject.name = newObject.name.Substring(0, newObject.name.Length - 7);
 
                 newObject.transform.eulerAngles = rotation;
                 newObject.transform.parent = MapRoot.transform;

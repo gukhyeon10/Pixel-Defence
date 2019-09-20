@@ -704,7 +704,7 @@ GameObject:
   - component: {fileID: 95000011492100664}
   m_Layer: 0
   m_Name: Nurse
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -738,7 +738,7 @@ Animator:
   m_GameObject: {fileID: 1000014191048202}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 8f2ce4dfdeb3f5142b3fa00f631b25b0, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43a6544a173fc1740a98faa66797bc07, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

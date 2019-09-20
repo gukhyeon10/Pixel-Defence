@@ -46,6 +46,11 @@ public class MapDataManagement : MonoBehaviour {
 
                 newObject.transform.eulerAngles = rotation;
                 newObject.transform.parent = MapRoot.transform;
+
+                if(newObject.tag.Equals("Cube"))
+                {
+                    newObject.AddComponent<BoxCollider>();
+                }
                 
             }
             

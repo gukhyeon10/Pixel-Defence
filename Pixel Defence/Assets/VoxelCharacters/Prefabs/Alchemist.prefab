@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 95000010995878036}
   m_Layer: 0
   m_Name: Alchemist
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -677,7 +677,7 @@ Animator:
   m_GameObject: {fileID: 1000013581079056}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 209af2c6cbfec0844a5695665c1dc225, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43a6544a173fc1740a98faa66797bc07, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

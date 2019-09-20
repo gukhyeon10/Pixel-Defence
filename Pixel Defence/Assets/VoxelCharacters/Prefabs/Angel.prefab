@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 95000010395903704}
   m_Layer: 0
   m_Name: Angel
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -377,7 +377,7 @@ Animator:
   m_GameObject: {fileID: 1000012031303842}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9241bd049f78ff34aa68cb91fc1d2a54, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43a6544a173fc1740a98faa66797bc07, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

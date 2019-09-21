@@ -1,86 +1,196 @@
 fileFormatVersion: 2
 guid: e24c503bcbf1fb24daebcb6198b687ce
-timeCreated: 1476491911
-licenseType: Store
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: Armature
-    100002: Body.001
-    100004: Head.001
-    100006: Head_jnt
-    100008: Head_jnt_end
-    100010: L_elbow_jnt
-    100012: L_elbow_jnt_end
-    100014: L_Shoulder_Jnt
-    100016: LeftArm
-    100018: R_Elbow_jnt
-    100020: R_Elbow_jnt_end
-    100022: R_Shoulder_jnt
-    100024: RightArm
-    100026: Root_jnt
-    100028: Torso_jnt
-    100030: //RootNode
-    400000: Armature
-    400002: Body.001
-    400004: Head.001
-    400006: Head_jnt
-    400008: Head_jnt_end
-    400010: L_elbow_jnt
-    400012: L_elbow_jnt_end
-    400014: L_Shoulder_Jnt
-    400016: LeftArm
-    400018: R_Elbow_jnt
-    400020: R_Elbow_jnt_end
-    400022: R_Shoulder_jnt
-    400024: RightArm
-    400026: Root_jnt
-    400028: Torso_jnt
-    400030: //RootNode
-    4300000: RightArm
-    4300002: LeftArm
-    4300004: Head.001
-    4300006: Body.001
-    7400000: Armature|AnimationCycles
-    7400002: Armature|Walk
-    7400004: Armature|Walk.001
-    7400006: Armature|WalkCycle
-    7400008: Armature|Waving
-    7400010: Armature|Waving.001
-    7400012: Head.001|Walk
-    7400014: Head.001|Walk.001
-    7400016: Head.001|WalkCycle
-    7400018: Head.001|Waving
-    7400020: Waving
-    9500000: //RootNode
-    13700000: Body.001
-    13700002: Head.001
-    13700004: LeftArm
-    13700006: RightArm
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Armature
+  - first:
+      1: 100002
+    second: Body.001
+  - first:
+      1: 100004
+    second: Head.001
+  - first:
+      1: 100006
+    second: Head_jnt
+  - first:
+      1: 100008
+    second: Head_jnt_end
+  - first:
+      1: 100010
+    second: L_elbow_jnt
+  - first:
+      1: 100012
+    second: L_elbow_jnt_end
+  - first:
+      1: 100014
+    second: L_Shoulder_Jnt
+  - first:
+      1: 100016
+    second: LeftArm
+  - first:
+      1: 100018
+    second: R_Elbow_jnt
+  - first:
+      1: 100020
+    second: R_Elbow_jnt_end
+  - first:
+      1: 100022
+    second: R_Shoulder_jnt
+  - first:
+      1: 100024
+    second: RightArm
+  - first:
+      1: 100026
+    second: Root_jnt
+  - first:
+      1: 100028
+    second: Torso_jnt
+  - first:
+      1: 100030
+    second: //RootNode
+  - first:
+      4: 400000
+    second: Armature
+  - first:
+      4: 400002
+    second: Body.001
+  - first:
+      4: 400004
+    second: Head.001
+  - first:
+      4: 400006
+    second: Head_jnt
+  - first:
+      4: 400008
+    second: Head_jnt_end
+  - first:
+      4: 400010
+    second: L_elbow_jnt
+  - first:
+      4: 400012
+    second: L_elbow_jnt_end
+  - first:
+      4: 400014
+    second: L_Shoulder_Jnt
+  - first:
+      4: 400016
+    second: LeftArm
+  - first:
+      4: 400018
+    second: R_Elbow_jnt
+  - first:
+      4: 400020
+    second: R_Elbow_jnt_end
+  - first:
+      4: 400022
+    second: R_Shoulder_jnt
+  - first:
+      4: 400024
+    second: RightArm
+  - first:
+      4: 400026
+    second: Root_jnt
+  - first:
+      4: 400028
+    second: Torso_jnt
+  - first:
+      4: 400030
+    second: //RootNode
+  - first:
+      43: 4300000
+    second: RightArm
+  - first:
+      43: 4300002
+    second: LeftArm
+  - first:
+      43: 4300004
+    second: Head.001
+  - first:
+      43: 4300006
+    second: Body.001
+  - first:
+      74: 7400000
+    second: Armature|AnimationCycles
+  - first:
+      74: 7400002
+    second: Armature|Walk
+  - first:
+      74: 7400004
+    second: Armature|Walk.001
+  - first:
+      74: 7400006
+    second: Armature|WalkCycle
+  - first:
+      74: 7400008
+    second: Armature|Waving
+  - first:
+      74: 7400010
+    second: Armature|Waving.001
+  - first:
+      74: 7400012
+    second: Head.001|Walk
+  - first:
+      74: 7400014
+    second: Head.001|Walk.001
+  - first:
+      74: 7400016
+    second: Head.001|WalkCycle
+  - first:
+      74: 7400018
+    second: Head.001|Waving
+  - first:
+      74: 7400020
+    second: Waving
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Body.001
+  - first:
+      137: 13700002
+    second: Head.001
+  - first:
+      137: 13700004
+    second: LeftArm
+  - first:
+      137: 13700006
+    second: RightArm
+  externalObjects: {}
   materials:
     importMaterials: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
       name: Waving
       takeName: Armature|AnimationCycles
+      internalID: 0
       firstFrame: 41
       lastFrame: 80
       wrapMode: 0
@@ -89,7 +199,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -144,13 +254,23 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -160,9 +280,15 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -172,8 +298,11 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   humanoidOversampling: 1

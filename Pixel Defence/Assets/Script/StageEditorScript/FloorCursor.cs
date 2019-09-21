@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmartCursor : MonoBehaviour
+public class FloorCursor : MonoBehaviour
 {
     [SerializeField]
     GameObject[] prefab_Floor;
 
-    [SerializeField]
-    GameObject gb_CursorObject;
+    public GameObject gb_CursorObject;
 
     [SerializeField]
     GameObject FloorRoot;
+
+    public bool isFloorCursor;
 
     bool isRayHit; // 마우스가 큐브를 가리키고 있는지
 
@@ -29,11 +30,14 @@ public class SmartCursor : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        FloorUpdate();
+        if(isFloorCursor)
+        {
+            FloorUpdate();
 
-        FloorSet();
+            FloorSet();
 
-        FloorChange();
+            FloorChange();
+        }
     }
 
     //장판 위치 업데이트

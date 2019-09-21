@@ -8,6 +8,13 @@ enum FloorKind
     END_FLOOR = 2,
 }
 
+enum CursorEditMode
+{
+    FLOOR = 0,
+    ENEMY = 1,
+    UNIT = 2,
+}
+
 public struct Floor
 {
     int trackNumber;

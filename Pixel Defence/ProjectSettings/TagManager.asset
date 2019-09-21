@@ -8,6 +8,9 @@ TagManager:
   - FxTemporaire
   - Cube
   - Floor
+  - Skill
+  - Unit
+  - Enemy
   - Character
   layers:
   - Default

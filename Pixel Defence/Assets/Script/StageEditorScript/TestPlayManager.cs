@@ -15,7 +15,7 @@ public class TestPlayManager : MonoBehaviour
     Dictionary<int, GameObject> dicStartFloor;
     public Dictionary<int, Dictionary<int,GameObject>> dicMiddleFloor;
     public Dictionary<int, GameObject> dicEndFloor;
-
+    
     static private TestPlayManager _instance = null;
 
     static public TestPlayManager Instance
@@ -52,13 +52,13 @@ public class TestPlayManager : MonoBehaviour
             if(isTestPlay)
             {
                 Debug.Log("임시 테스트 진행");
-
                 FloorUpload();
                 StartCoroutine(TestPlay());
             }
             else
             {
                 Debug.Log("테스트 중단");
+                StopAllCoroutines();
 
                 FloorDictionaryInit();
                 EnemyRootInit();
@@ -146,6 +146,9 @@ public class TestPlayManager : MonoBehaviour
             GameObject TestEnemy = Instantiate(prefab_Enemy, new Vector3(startFloor.transform.position.x, 1f, startFloor.transform.position.z), Quaternion.identity, EnemyRoot.transform);
             TestEnemy.AddComponent<TestEnemyScript>();
             TestEnemy.GetComponent<TestEnemyScript>().trackNumber = startFloorObject.Key;
+
         }
+        yield return new WaitForSeconds(10f);
+        StartCoroutine(TestPlay());
     }
 }

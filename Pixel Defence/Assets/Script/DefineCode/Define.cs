@@ -15,8 +15,22 @@ enum CursorEditMode
     UNIT = 2,
 }
 
-public struct Floor
+public struct Enemy
 {
-    int trackNumber;
-    int floorNumber;
+    public  string name;
+    public int trackNumber;
+    public int hp;
+    public int def;
+    public int speed;
+    public float nextGap;
+
+    public Enemy(string name, int trackNumber)
+    {
+        this.name = name;
+        this.trackNumber = trackNumber;
+        hp = 0;
+        def = 0;
+        speed = 0;
+        nextGap = 3f;
+    }
 }

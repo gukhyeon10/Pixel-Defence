@@ -108,6 +108,7 @@ public class TestEnemyScript : MonoBehaviour
     {
         while(true)
         {
+            RotateToTarget();
             this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, speed * Time.deltaTime);
             yield return null;
             if(this.transform.position.x == endFloor.position.x && this.transform.position.z == endFloor.position.z)

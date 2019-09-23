@@ -10,11 +10,22 @@ public class TestPlayManager : MonoBehaviour
     [SerializeField]
     GameObject EnemyRoot;
 
+    [SerializeField]
+    EnemyCursor enemyCursor;
+    
+
     public GameObject prefab_Enemy;
 
     Dictionary<int, GameObject> dicStartFloor;
     public Dictionary<int, Dictionary<int,GameObject>> dicMiddleFloor;
     public Dictionary<int, GameObject> dicEndFloor;
+
+    Dictionary<int, Queue<GameObject>> dicEnemyDeck;
+
+    [SerializeField]
+    Transform EnemyDeck;
+
+    public float spawnGap = 5f;
     
     static private TestPlayManager _instance = null;
 
@@ -33,6 +44,8 @@ public class TestPlayManager : MonoBehaviour
         dicStartFloor = new Dictionary<int, GameObject>();
         dicMiddleFloor = new Dictionary<int, Dictionary<int,GameObject>>();
         dicEndFloor = new Dictionary<int, GameObject>();
+
+        dicEnemyDeck = new Dictionary<int, Queue<GameObject>>();
     }
 
     // Start is called before the first frame update
@@ -53,7 +66,9 @@ public class TestPlayManager : MonoBehaviour
             {
                 Debug.Log("임시 테스트 진행");
                 FloorUpload();
-                StartCoroutine(TestPlay());
+                EnemyUpload();
+
+                TestPlayStart();
             }
             else
             {
@@ -75,6 +90,7 @@ public class TestPlayManager : MonoBehaviour
         }
     }
 
+    //장판 딕셔너리 초기화
     void FloorDictionaryInit()
     {
         dicStartFloor.Clear();
@@ -82,6 +98,7 @@ public class TestPlayManager : MonoBehaviour
         dicEndFloor.Clear();
     }
 
+    //임시 실행하기 위해 장판 정보 로드
     void FloorUpload()
     {
         int FloorCount = FloorRoot.transform.childCount;
@@ -137,18 +154,66 @@ public class TestPlayManager : MonoBehaviour
         }
     }
 
-    IEnumerator TestPlay()
+    //Grid_EnemyStack의 자식 오브젝트들을 통해 리소스 로드
+    void EnemyUpload()
     {
-        yield return null;
+        dicEnemyDeck.Clear();
         foreach(var startFloorObject in dicStartFloor)
         {
-            GameObject startFloor = startFloorObject.Value;
-            GameObject TestEnemy = Instantiate(prefab_Enemy, new Vector3(startFloor.transform.position.x, 1f, startFloor.transform.position.z), Quaternion.identity, EnemyRoot.transform);
-            TestEnemy.AddComponent<TestEnemyScript>();
-            TestEnemy.GetComponent<TestEnemyScript>().trackNumber = startFloorObject.Key;
+            foreach (Enemy enemy in enemyCursor.dicEnemyDeck[startFloorObject.Key])
+            {
+                int trackNumber = enemy.trackNumber; 
+                
+                    GameObject prefab_Enemy = Resources.Load("Character Resources/" + enemy.name) as GameObject;
 
+
+                    GameObject startFloor = startFloorObject.Value;
+
+                    GameObject newEnemy = Instantiate(prefab_Enemy, new Vector3(startFloor.transform.position.x, 1f, startFloor.transform.position.z), Quaternion.identity, EnemyRoot.transform);
+                    newEnemy.AddComponent<TestEnemyScript>();
+                    newEnemy.GetComponent<TestEnemyScript>().trackNumber = trackNumber;
+
+                    //해당 트랙의 enemy덱이 존재한다면 push
+                    if(dicEnemyDeck.ContainsKey(trackNumber))
+                    {
+                        dicEnemyDeck[trackNumber].Enqueue(newEnemy);
+                        newEnemy.SetActive(false);
+                    }
+                    //해당 트랙의 enemy덱이 존재하지 않다면 스택 새로 만들고 push한 후 dictionary에 추가
+                    else
+                    {
+                        Queue<GameObject> newEnemyDeck = new Queue<GameObject>();
+                        newEnemyDeck.Enqueue(newEnemy);
+                        newEnemy.SetActive(false);
+
+                        dicEnemyDeck.Add(trackNumber, newEnemyDeck);
+                    }
+                    
+            }
         }
-        yield return new WaitForSeconds(10f);
-        StartCoroutine(TestPlay());
+
+      
+    }
+
+    //임시 실행
+    void TestPlayStart()
+    {
+        foreach(KeyValuePair<int, Queue<GameObject>> enemyDeck in dicEnemyDeck)
+        {
+            StartCoroutine(TestPlay(enemyDeck.Value));
+        }
+    }
+
+    //임시 실행 코루틴
+    IEnumerator TestPlay(Queue<GameObject> enemyDeck)
+    {
+        yield return null;
+       
+        foreach(GameObject enemy in enemyDeck)
+        {
+            enemy.SetActive(true);
+            yield return new WaitForSeconds(spawnGap);
+        }
+        
     }
 }

@@ -8,11 +8,15 @@ public class EditorModeManager : MonoBehaviour
     FloorCursor floorCursor;
     [SerializeField]
     UnitCursor unitCursor;
+    [SerializeField]
+    EnemyCursor enemyCursor;
 
     [SerializeField]
     UILabel label_CursorMode;
     [SerializeField]
     UILabel label_Testing;
+    [SerializeField]
+    UIAnchor anchor_EnemyStack;
 
     int CursorMode;
 
@@ -27,6 +31,10 @@ public class EditorModeManager : MonoBehaviour
 
         unitCursor.isUnitCursor = false;
         unitCursor.gb_CursorObject.SetActive(false);
+
+        enemyCursor.isEnemyCursor = false;
+        anchor_EnemyStack.gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -50,6 +58,9 @@ public class EditorModeManager : MonoBehaviour
                         floorCursor.isFloorCursor = false;
                         floorCursor.gb_CursorObject.SetActive(false);
 
+                        enemyCursor.isEnemyCursor = true;
+                        anchor_EnemyStack.gameObject.SetActive(true);
+
                         label_CursorMode.text = "Cursor : Enemy ";
 
                         break;
@@ -61,6 +72,8 @@ public class EditorModeManager : MonoBehaviour
                         unitCursor.isUnitCursor = true;
                         unitCursor.gb_CursorObject.SetActive(true);
 
+                        enemyCursor.isEnemyCursor = false;
+                        anchor_EnemyStack.gameObject.SetActive(false);
 
                         label_CursorMode.text = "Cursor : Unit";
                         break;

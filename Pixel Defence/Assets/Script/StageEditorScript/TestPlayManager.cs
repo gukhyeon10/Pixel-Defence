@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class TestPlayManager : MonoBehaviour
@@ -21,7 +20,7 @@ public class TestPlayManager : MonoBehaviour
     public Dictionary<int, Dictionary<int,GameObject>> dicMiddleFloor;
     public Dictionary<int, GameObject> dicEndFloor;
 
-    Dictionary<int, List<GameObject>> dicEnemyDeck;
+    Dictionary<int, Queue<GameObject>> dicEnemyDeck;
 
     [SerializeField]
     Transform EnemyDeck;
@@ -44,7 +43,7 @@ public class TestPlayManager : MonoBehaviour
         dicMiddleFloor = new Dictionary<int, Dictionary<int,GameObject>>();
         dicEndFloor = new Dictionary<int, GameObject>();
 
-        dicEnemyDeck = new Dictionary<int, List<GameObject>>();
+        dicEnemyDeck = new Dictionary<int, Queue<GameObject>>();
     }
 
     // Start is called before the first frame update
@@ -74,8 +73,8 @@ public class TestPlayManager : MonoBehaviour
                 Debug.Log("테스트 중단");
                 StopAllCoroutines();
 
-                EnemyRootInit();
                 FloorDictionaryInit();
+                EnemyRootInit();
             }
         }
     }
@@ -83,16 +82,10 @@ public class TestPlayManager : MonoBehaviour
     //적 오브젝트 모두 삭제
     void EnemyRootInit()
     {
-        foreach(var enemyList in dicEnemyDeck)
+        foreach(Transform enemy in EnemyRoot.transform)
         {
-            for(int i=0;i<dicEnemyDeck[enemyList.Key].Count; i++)
-            {
-                Destroy(dicEnemyDeck[enemyList.Key][i].gameObject);
-            }
-            dicEnemyDeck[enemyList.Key].Clear();
+            Destroy(enemy.gameObject);
         }
-
-        dicEnemyDeck.Clear();
     }
 
     //장판 딕셔너리 초기화
@@ -182,15 +175,15 @@ public class TestPlayManager : MonoBehaviour
                 //해당 트랙의 enemy덱이 존재한다면 push
                 if(dicEnemyDeck.ContainsKey(trackNumber))
                 {
-                    dicEnemyDeck[trackNumber].Add(newEnemy);
-                    newEnemy.SetActive(true);
+                    dicEnemyDeck[trackNumber].Enqueue(newEnemy);
+                    newEnemy.SetActive(false);
                 }
                 //해당 트랙의 enemy덱이 존재하지 않다면 스택 새로 만들고 push한 후 dictionary에 추가
                 else
                 {
-                    List<GameObject> newEnemyDeck = new List<GameObject>();
-                    newEnemyDeck.Add(newEnemy);
-                    newEnemy.SetActive(true);
+                    Queue<GameObject> newEnemyDeck = new Queue<GameObject>();
+                    newEnemyDeck.Enqueue(newEnemy);
+                    newEnemy.SetActive(false);
 
                     dicEnemyDeck.Add(trackNumber, newEnemyDeck);
                 }
@@ -204,36 +197,21 @@ public class TestPlayManager : MonoBehaviour
     //임시 실행
     void TestPlayStart()
     {
-        /*foreach(KeyValuePair<int, Queue<GameObject>> enemyDeck in dicEnemyDeck)
+        foreach(KeyValuePair<int, Queue<GameObject>> enemyDeck in dicEnemyDeck)
         {
             StartCoroutine(TestPlay(enemyDeck.Value));
-        }*/
-
-        List<int> keyList;
-        keyList = dicEnemyDeck.Keys.ToList();
-
-        for (int i=0; i<dicEnemyDeck.Count; i++)
-        {
-            StartCoroutine(TestPlay(dicEnemyDeck[keyList[i]]));
         }
     }
 
     //임시 실행 코루틴
-    IEnumerator TestPlay(List<GameObject> enemyDeck)
+    IEnumerator TestPlay(Queue<GameObject> enemyDeck)
     {
         yield return null;
-        /*
-        foreach (GameObject enemy in enemyDeck)
+       
+        foreach(GameObject enemy in enemyDeck)
         {
             enemy.SetActive(true);
             yield return new WaitForSeconds(enemy.GetComponent<TestEnemyScript>().nextGap);
-        }*/
-        
-        for (int i = 0; i < enemyDeck.Count; i++)
-        {
-            //enemyDeck[i].SetActive(true);
-            enemyDeck[i].GetComponent<TestEnemyScript>().isGo = true;
-            yield return new WaitForSeconds(enemyDeck[i].GetComponent<TestEnemyScript>().nextGap);
         }
         
     }

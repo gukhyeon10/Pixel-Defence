@@ -179,4 +179,9 @@ public class EnemyCursor : MonoBehaviour
 
         gb_EnemyStack.Reposition();
     }
+
+    public void UpdateEnemyStack()
+    {
+        ChangeEnemyStack();
+    }
 }

@@ -20,11 +20,13 @@ public class TestEnemyScript : MonoBehaviour
 
     public float nextGap = 2f;
 
+    public bool isGo = false;
+
     // Start is called before the first frame update
     void Start()
     {
         testPlayManager = TestPlayManager.Instance;
-        dicTrack = new Dictionary<int, GameObject>();
+       
 
         if(testPlayManager.dicMiddleFloor.ContainsKey(trackNumber))
         {
@@ -53,7 +55,7 @@ public class TestEnemyScript : MonoBehaviour
     void Update()
     {
         //종착점을 향해 가지 않는다면 그 다음 장판으로 이동
-        if(!isTowardEndFloor)
+        if(isGo && !isTowardEndFloor)
         {
             RotateToTarget();
             MoveFloor();
@@ -121,9 +123,7 @@ public class TestEnemyScript : MonoBehaviour
             yield return null;
             if(this.transform.position.x == endFloor.position.x && this.transform.position.z == endFloor.position.z)
             {
-                Debug.Log("the end");
-
-                Destroy(this.gameObject);
+                // this.gameObject.SetActive(false);
                 break;
             }
         }

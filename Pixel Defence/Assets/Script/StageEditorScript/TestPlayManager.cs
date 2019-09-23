@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TestPlayManager : MonoBehaviour
@@ -13,7 +14,6 @@ public class TestPlayManager : MonoBehaviour
     [SerializeField]
     EnemyCursor enemyCursor;
     
-
     public GameObject prefab_Enemy;
 
     Dictionary<int, GameObject> dicStartFloor;
@@ -24,6 +24,8 @@ public class TestPlayManager : MonoBehaviour
 
     [SerializeField]
     Transform EnemyDeck;
+
+    int EnemyTotal;
     
     static private TestPlayManager _instance = null;
 
@@ -73,8 +75,8 @@ public class TestPlayManager : MonoBehaviour
                 Debug.Log("테스트 중단");
                 StopAllCoroutines();
 
-                FloorDictionaryInit();
                 EnemyRootInit();
+                FloorDictionaryInit();
             }
         }
     }
@@ -82,6 +84,16 @@ public class TestPlayManager : MonoBehaviour
     //적 오브젝트 모두 삭제
     void EnemyRootInit()
     {
+        List<int> keyList = dicEnemyDeck.Keys.ToList();
+        for(int i= 0; i<keyList.Count; i++)
+        {
+            for(int j=0; j<dicEnemyDeck[keyList[i]].Count; j++)
+            {
+                Destroy(dicEnemyDeck[keyList[i]].Dequeue());
+            }
+        }
+        dicEnemyDeck.Clear();
+
         foreach(Transform enemy in EnemyRoot.transform)
         {
             Destroy(enemy.gameObject);
@@ -155,6 +167,7 @@ public class TestPlayManager : MonoBehaviour
     //Grid_EnemyStack의 자식 오브젝트들을 통해 리소스 로드
     void EnemyUpload()
     {
+        EnemyTotal = 0;
         dicEnemyDeck.Clear();
         foreach(var startFloorObject in dicStartFloor)
         {
@@ -164,28 +177,29 @@ public class TestPlayManager : MonoBehaviour
                 
                 GameObject prefab_Enemy = Resources.Load("Character Resources/" + enemy.name) as GameObject;
 
-
                 GameObject startFloor = startFloorObject.Value;
 
-                GameObject newEnemy = Instantiate(prefab_Enemy, new Vector3(startFloor.transform.position.x, 1f, startFloor.transform.position.z), Quaternion.identity, EnemyRoot.transform);
+                GameObject newEnemy = Instantiate(prefab_Enemy, Vector3.zero, Quaternion.identity, EnemyRoot.transform);
+
                 TestEnemyScript testEnemyScript = newEnemy.AddComponent<TestEnemyScript>();
                 testEnemyScript.trackNumber = trackNumber;
                 testEnemyScript.nextGap = enemy.nextGap;
+                testEnemyScript.startPosition = new Vector3(startFloor.transform.position.x, 1f, startFloor.transform.position.z);
 
                 //해당 트랙의 enemy덱이 존재한다면 push
                 if(dicEnemyDeck.ContainsKey(trackNumber))
                 {
                     dicEnemyDeck[trackNumber].Enqueue(newEnemy);
-                    newEnemy.SetActive(false);
+                    EnemyTotal++;
                 }
                 //해당 트랙의 enemy덱이 존재하지 않다면 스택 새로 만들고 push한 후 dictionary에 추가
                 else
                 {
                     Queue<GameObject> newEnemyDeck = new Queue<GameObject>();
                     newEnemyDeck.Enqueue(newEnemy);
-                    newEnemy.SetActive(false);
-
+                    
                     dicEnemyDeck.Add(trackNumber, newEnemyDeck);
+                    EnemyTotal++;
                 }
                     
             }
@@ -210,8 +224,14 @@ public class TestPlayManager : MonoBehaviour
        
         foreach(GameObject enemy in enemyDeck)
         {
-            enemy.SetActive(true);
+            EnemyTotal--;
+            enemy.GetComponent<TestEnemyScript>().EnemyStart();
             yield return new WaitForSeconds(enemy.GetComponent<TestEnemyScript>().nextGap);
+        }
+
+        if(EnemyTotal <= 0)
+        {
+            Debug.Log("모든 적 시뮬레이션 완료");
         }
         
     }

@@ -14,6 +14,9 @@ public class EnemyCursor : MonoBehaviour
     [SerializeField]
     GameObject[] SelectionPrefab;
 
+    [SerializeField]
+    UIInput input_NextGap;
+
     public Dictionary<int, List<Enemy>> dicEnemyDeck;
 
     public  bool isEnemyCursor = false;
@@ -117,7 +120,7 @@ public class EnemyCursor : MonoBehaviour
             {
                for(int i = 0; i< gb_EnemyStack.transform.childCount; i++)
                 {
-                    if(gb_EnemyStack.GetChild(i) == prefab_Enemy)
+                    if(gb_EnemyStack.GetChild(i) == prefab_Enemy.transform)
                     {
                         dicEnemyDeck[trackNumber].RemoveAt(i);
                         break;
@@ -133,14 +136,11 @@ public class EnemyCursor : MonoBehaviour
                 newEnemy.transform.eulerAngles = Vector3.up * 180f; // 앞을 보게끔
                 newEnemy.GetComponent<UIDragScrollView>().scrollView = scrollView_EnemyStack;
                 newEnemy.name = newEnemy.name.Substring(0, newEnemy.name.Length - 7);
-
-                newEnemy.AddComponent<DeckEnemyScript>();
-                newEnemy.GetComponent<DeckEnemyScript>().trackNumber = trackNumber;
                 
                 
                 if (dicEnemyDeck.ContainsKey(trackNumber))
                 {
-                    dicEnemyDeck[trackNumber].Add(new Enemy(newEnemy.name, trackNumber));
+                    dicEnemyDeck[trackNumber].Add(new Enemy(newEnemy.name, trackNumber, float.Parse(input_NextGap.value)));
                 }
 
 
@@ -170,9 +170,7 @@ public class EnemyCursor : MonoBehaviour
                     newEnemy.transform.eulerAngles = Vector3.up * 180f; // 앞을 보게끔
                     newEnemy.GetComponent<UIDragScrollView>().scrollView = scrollView_EnemyStack;
                     newEnemy.name = newEnemy.name.Substring(0, newEnemy.name.Length - 7);
-
-                    newEnemy.AddComponent<DeckEnemyScript>();
-                    newEnemy.GetComponent<DeckEnemyScript>().trackNumber = trackNumber;
+                    
                     break;
                 }
             }

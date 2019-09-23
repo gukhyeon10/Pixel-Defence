@@ -18,12 +18,20 @@ public class TestEnemyScript : MonoBehaviour
 
     bool isTowardEndFloor; // 종착점 장판을 가고 있는지
 
+    public float nextGap = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
         testPlayManager = TestPlayManager.Instance;
-        dicTrack = testPlayManager.dicMiddleFloor[trackNumber];
-        if(testPlayManager.dicEndFloor.ContainsKey(trackNumber))
+        dicTrack = new Dictionary<int, GameObject>();
+
+        if(testPlayManager.dicMiddleFloor.ContainsKey(trackNumber))
+        {
+            dicTrack = testPlayManager.dicMiddleFloor[trackNumber];
+        }
+
+        if (testPlayManager.dicEndFloor.ContainsKey(trackNumber))
         {
             endFloor = testPlayManager.dicEndFloor[trackNumber].transform;
         }
@@ -32,7 +40,7 @@ public class TestEnemyScript : MonoBehaviour
             endFloor = null;
         }
 
-        isTowardEndFloor = false;
+        isTowardEndFloor = false;  // 종착점을 찾아 가는지 체크
 
         floorNumber = -1;  // 0번 floor부터 찾기 위함
         floorCount = 0;

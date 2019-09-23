@@ -24,13 +24,13 @@ public struct Enemy
     public int speed;
     public float nextGap;
 
-    public Enemy(string name, int trackNumber)
+    public Enemy(string name, int trackNumber, float nextGap)
     {
         this.name = name;
         this.trackNumber = trackNumber;
         hp = 0;
         def = 0;
         speed = 0;
-        nextGap = 3f;
+        this.nextGap = nextGap;
     }
 }

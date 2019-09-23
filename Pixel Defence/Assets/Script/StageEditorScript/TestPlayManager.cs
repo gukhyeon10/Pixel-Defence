@@ -24,8 +24,6 @@ public class TestPlayManager : MonoBehaviour
 
     [SerializeField]
     Transform EnemyDeck;
-
-    public float spawnGap = 5f;
     
     static private TestPlayManager _instance = null;
 
@@ -164,30 +162,31 @@ public class TestPlayManager : MonoBehaviour
             {
                 int trackNumber = enemy.trackNumber; 
                 
-                    GameObject prefab_Enemy = Resources.Load("Character Resources/" + enemy.name) as GameObject;
+                GameObject prefab_Enemy = Resources.Load("Character Resources/" + enemy.name) as GameObject;
 
 
-                    GameObject startFloor = startFloorObject.Value;
+                GameObject startFloor = startFloorObject.Value;
 
-                    GameObject newEnemy = Instantiate(prefab_Enemy, new Vector3(startFloor.transform.position.x, 1f, startFloor.transform.position.z), Quaternion.identity, EnemyRoot.transform);
-                    newEnemy.AddComponent<TestEnemyScript>();
-                    newEnemy.GetComponent<TestEnemyScript>().trackNumber = trackNumber;
+                GameObject newEnemy = Instantiate(prefab_Enemy, new Vector3(startFloor.transform.position.x, 1f, startFloor.transform.position.z), Quaternion.identity, EnemyRoot.transform);
+                TestEnemyScript testEnemyScript = newEnemy.AddComponent<TestEnemyScript>();
+                testEnemyScript.trackNumber = trackNumber;
+                testEnemyScript.nextGap = enemy.nextGap;
 
-                    //해당 트랙의 enemy덱이 존재한다면 push
-                    if(dicEnemyDeck.ContainsKey(trackNumber))
-                    {
-                        dicEnemyDeck[trackNumber].Enqueue(newEnemy);
-                        newEnemy.SetActive(false);
-                    }
-                    //해당 트랙의 enemy덱이 존재하지 않다면 스택 새로 만들고 push한 후 dictionary에 추가
-                    else
-                    {
-                        Queue<GameObject> newEnemyDeck = new Queue<GameObject>();
-                        newEnemyDeck.Enqueue(newEnemy);
-                        newEnemy.SetActive(false);
+                //해당 트랙의 enemy덱이 존재한다면 push
+                if(dicEnemyDeck.ContainsKey(trackNumber))
+                {
+                    dicEnemyDeck[trackNumber].Enqueue(newEnemy);
+                    newEnemy.SetActive(false);
+                }
+                //해당 트랙의 enemy덱이 존재하지 않다면 스택 새로 만들고 push한 후 dictionary에 추가
+                else
+                {
+                    Queue<GameObject> newEnemyDeck = new Queue<GameObject>();
+                    newEnemyDeck.Enqueue(newEnemy);
+                    newEnemy.SetActive(false);
 
-                        dicEnemyDeck.Add(trackNumber, newEnemyDeck);
-                    }
+                    dicEnemyDeck.Add(trackNumber, newEnemyDeck);
+                }
                     
             }
         }
@@ -212,7 +211,7 @@ public class TestPlayManager : MonoBehaviour
         foreach(GameObject enemy in enemyDeck)
         {
             enemy.SetActive(true);
-            yield return new WaitForSeconds(spawnGap);
+            yield return new WaitForSeconds(enemy.GetComponent<TestEnemyScript>().nextGap);
         }
         
     }

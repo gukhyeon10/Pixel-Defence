@@ -46,6 +46,7 @@ public class TestEnemyScript : MonoBehaviour
 
     }
 
+    // 풀링에서 시작floor로 시작
     public void EnemyStart()
     {
         this.transform.position = startPosition;   // 시작 floor에 위치
@@ -59,6 +60,8 @@ public class TestEnemyScript : MonoBehaviour
         targetPosition.y = 1f;
 
         isGo = true;
+
+        this.GetComponent<Animator>().speed = stats.speed/2f;  // 애니메이션 속도 비례
     }
 
     // Update is called once per frame

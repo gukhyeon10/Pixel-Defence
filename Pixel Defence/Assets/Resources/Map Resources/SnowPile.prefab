@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1963999351642400626}
   - component: {fileID: 8047191062480993894}
   - component: {fileID: 4111325991603235024}
+  - component: {fileID: -6857574195585660497}
   m_Layer: 0
   m_Name: SnowPile
   m_TagString: Untagged
@@ -65,6 +66,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -77,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &-6857574195585660497
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9072473727846509251}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.898249, y: 0.49410984, z: 1.806078}
+  m_Center: {x: -0.019368589, y: 0.11309682, z: 0.018705815}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4915899997918970868}
   - component: {fileID: 5667343975857960515}
   - component: {fileID: 3892263555933613635}
+  - component: {fileID: -2810088887692922266}
   m_Layer: 0
   m_Name: WinterBrazier_Blue
   m_TagString: Untagged
@@ -66,6 +67,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -78,6 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &-2810088887692922266
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7075566689925690928}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9016799, y: 1.5198748, z: 1.9016799}
+  m_Center: {x: -0.0000009536743, y: 0.029160112, z: -0.00000035762787}
 --- !u!1001 &3100452883255706443
 PrefabInstance:
   m_ObjectHideFlags: 0

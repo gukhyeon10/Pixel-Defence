@@ -47,6 +47,8 @@ public class MapDataManagement : MonoBehaviour {
                 newObject.transform.eulerAngles = rotation;
                 newObject.transform.parent = MapRoot.transform;
 
+                newObject.tag = node.SelectSingleNode("Tag").InnerText;
+
                 if(newObject.tag.Equals("Cube"))
                 {
                     newObject.AddComponent<BoxCollider>();
@@ -117,6 +119,10 @@ public class MapDataManagement : MonoBehaviour {
                 XmlElement scaleZ = xmlDoc.CreateElement("ScaleZ");
                 scaleZ.InnerText = mapChildObject.localScale.z.ToString();
                 childNode.AppendChild(scaleZ);
+
+                XmlElement tag = xmlDoc.CreateElement("Tag");
+                tag.InnerText = mapChildObject.tag;
+                childNode.AppendChild(tag);
 
             }
             

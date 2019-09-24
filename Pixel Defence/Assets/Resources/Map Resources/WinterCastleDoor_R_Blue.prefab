@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6963583080995293960}
   - component: {fileID: 621608238307875908}
   - component: {fileID: 2689283433729181380}
+  - component: {fileID: -3752768220786528370}
   m_Layer: 0
   m_Name: WinterCastleDoor_R_Blue
   m_TagString: Untagged
@@ -65,6 +66,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -77,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &-3752768220786528370
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4496431774288957467}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.296512, y: 3.467775, z: 0.29237747}
+  m_Center: {x: 0.64920944, y: 1.7376684, z: 0.053027153}

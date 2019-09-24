@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 3880103165420251381}
   - component: {fileID: 3880103165416859861}
   - component: {fileID: 3880103165417957909}
+  - component: {fileID: 8836281222391950073}
   m_Layer: 0
   m_Name: ForestChestBottom
   m_TagString: Untagged
@@ -144,6 +145,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8836281222391950073
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3880103165419959509}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1816084, y: 0.82188773, z: 0.9430407}
+  m_Center: {x: -7.243853e-15, y: 0.22291994, z: 0.012029464}
 --- !u!1001 &3880103164202006105
 PrefabInstance:
   m_ObjectHideFlags: 0

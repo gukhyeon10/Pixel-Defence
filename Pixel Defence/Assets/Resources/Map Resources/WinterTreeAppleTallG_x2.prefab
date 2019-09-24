@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 652199935}
   - component: {fileID: 652199934}
   - component: {fileID: 652199933}
+  - component: {fileID: 4371019962239067138}
   m_Layer: 0
   m_Name: WinterTreeAppleTallG_x2
   m_TagString: Untagged
@@ -65,6 +66,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -77,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4371019962239067138
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652199932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.807027, y: 2.9977353, z: 1.7859797}
+  m_Center: {x: -0.004302621, y: 1.5127305, z: -0.011596203}

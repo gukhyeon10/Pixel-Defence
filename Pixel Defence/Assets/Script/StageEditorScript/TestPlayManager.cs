@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using UnityEngine;
 
 public class TestPlayManager : MonoBehaviour
@@ -21,6 +22,8 @@ public class TestPlayManager : MonoBehaviour
     public Dictionary<int, GameObject> dicEndFloor;
 
     Dictionary<int, Queue<GameObject>> dicEnemyDeck;
+
+    public Dictionary<int, EnemyStats> dicEnemyStats;
 
     [SerializeField]
     Transform EnemyDeck;
@@ -46,6 +49,7 @@ public class TestPlayManager : MonoBehaviour
         dicEndFloor = new Dictionary<int, GameObject>();
 
         dicEnemyDeck = new Dictionary<int, Queue<GameObject>>();
+        dicEnemyStats = new Dictionary<int, EnemyStats>();
     }
 
     // Start is called before the first frame update
@@ -53,6 +57,10 @@ public class TestPlayManager : MonoBehaviour
     {
         isTestPlay = false;
 
+        for(int i= 0;i<(int)EnemyKind.ENEMY_KIND_COUNT; i++)
+        {
+            dicEnemyStats.Add(i, new EnemyStats(10f, 1f, 2f));
+        }
     }
 
     // Update is called once per frame
@@ -164,6 +172,26 @@ public class TestPlayManager : MonoBehaviour
         }
     }
 
+    //Enemy 스탯 업로드
+    public void EnemyStatsUpload(UILabel label_Name, UIInput input_Hp, UIInput input_Def, UIInput input_Speed)
+    {
+        int no = (int)Enum.Parse(typeof(EnemyKind), label_Name.text);
+
+        input_Hp.value = dicEnemyStats[no].hp.ToString();
+        input_Def.value = dicEnemyStats[no].def.ToString();
+        input_Speed.value = dicEnemyStats[no].speed.ToString();
+    }
+
+    public void EnemyStatsUpdate(UILabel label_Name, UIInput input_Hp, UIInput input_Def, UIInput input_Speed)
+    {
+        int no = (int)Enum.Parse(typeof(EnemyKind), label_Name.text);
+
+        dicEnemyStats[no] = new EnemyStats(float.Parse(input_Hp.value),
+                                           float.Parse(input_Def.value),
+                                           float.Parse(input_Speed.value));
+
+    }
+
     //Grid_EnemyStack의 자식 오브젝트들을 통해 리소스 로드
     void EnemyUpload()
     {
@@ -184,7 +212,8 @@ public class TestPlayManager : MonoBehaviour
                 TestEnemyScript testEnemyScript = newEnemy.AddComponent<TestEnemyScript>();
                 testEnemyScript.trackNumber = trackNumber;
                 testEnemyScript.nextGap = enemy.nextGap;
-                testEnemyScript.startPosition = new Vector3(startFloor.transform.position.x, 1f, startFloor.transform.position.z);
+                testEnemyScript.SetStartPosition = new Vector3(startFloor.transform.position.x, 1f, startFloor.transform.position.z);
+                testEnemyScript.stats = EnemyStatsReturn(enemy.name);
 
                 //해당 트랙의 enemy덱이 존재한다면 push
                 if(dicEnemyDeck.ContainsKey(trackNumber))
@@ -206,6 +235,50 @@ public class TestPlayManager : MonoBehaviour
         }
 
       
+    }
+
+    EnemyStats EnemyStatsReturn(string enemyName)
+    {
+        EnemyStats stats = dicEnemyStats[(int)EnemyKind.DINOTREBLE]; ;
+        switch(enemyName)
+        {
+            case "DinoTreble":
+                {
+                    stats = dicEnemyStats[(int)EnemyKind.DINOTREBLE];
+                    break;
+                }
+            case "Mime":
+                {
+                    stats = dicEnemyStats[(int)EnemyKind.MIME];
+                    break;
+                }
+            case "Samurai":
+                {
+                    stats = dicEnemyStats[(int)EnemyKind.SAMURAI];
+                    break;
+                }
+            case "Zombie":
+                {
+                    stats = dicEnemyStats[(int)EnemyKind.ZOMBIE];
+                    break;
+                }
+            case "ScientistRig":
+                {
+                    stats = dicEnemyStats[(int)EnemyKind.SCIENTISTRIG];
+                    break;
+                }
+            case "Pirate":
+                {
+                    stats = dicEnemyStats[(int)EnemyKind.PIRATE];
+                    break;
+                }
+            case "CharacterAnimations":
+                {
+                    stats = dicEnemyStats[(int)EnemyKind.CHARACTERANIM];
+                    break;
+                }
+        }
+        return stats;
     }
 
     //임시 실행

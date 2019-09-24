@@ -9,7 +9,6 @@ public class TestEnemyScript : MonoBehaviour
     public int trackNumber;   // 트랙 번호
     public int floorCount;    // 이동한 장판 카운트
     int floorNumber;          // 이동할 장판 번호
-    float speed = 2f;         // 이동 속도
     public float nextGap = 2f;  // 다음 유닛 스폰 시간
     bool isGo = false;      // 트랙 달리기 시작
     bool isTowardEndFloor;  // 종착점 장판을 가고 있는지
@@ -19,7 +18,9 @@ public class TestEnemyScript : MonoBehaviour
 
     Vector3 targetPosition;   // 다음 이동 포지션
     Vector3 initPosition = new Vector3(-1000f, -1000f, -1000f);   // 비활성화 위치
-    public Vector3 startPosition;   // 처음 시작 부분
+    Vector3 startPosition;   // 처음 시작 부분
+
+    public EnemyStats stats;
 
     // Start is called before the first frame update
     void Start()
@@ -74,7 +75,7 @@ public class TestEnemyScript : MonoBehaviour
     //다음 FLOOR로 이동
     void MoveFloor()
     {
-        this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, speed * Time.deltaTime);
+        this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, stats.speed * Time.deltaTime);
 
         
         if (this.transform.position == targetPosition)
@@ -115,7 +116,7 @@ public class TestEnemyScript : MonoBehaviour
     void RotateToTarget()
     {
         Vector3 vec =  targetPosition - this.transform.position;
-        float step = 2f * Time.deltaTime;
+        float step = stats.speed * Time.deltaTime;
         Vector3 newDir = Vector3.RotateTowards(this.transform.forward, vec, step, 0.0f);
 
         this.transform.rotation = Quaternion.LookRotation(newDir);
@@ -128,7 +129,7 @@ public class TestEnemyScript : MonoBehaviour
         while(true)
         {
             RotateToTarget();
-            this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, speed * Time.deltaTime);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, stats.speed * Time.deltaTime);
             yield return null;
             if(this.transform.position.x == endFloor.position.x && this.transform.position.z == endFloor.position.z)
             {
@@ -136,6 +137,14 @@ public class TestEnemyScript : MonoBehaviour
                 this.transform.position = initPosition;
                 break;
             }
+        }
+    }
+
+    public Vector3 SetStartPosition
+    {
+        set
+        {
+            this.startPosition = value;
         }
     }
 }

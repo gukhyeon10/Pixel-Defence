@@ -17,6 +17,8 @@ public class EditorModeManager : MonoBehaviour
     UILabel label_Testing;
     [SerializeField]
     UIAnchor anchor_EnemyStack;
+    [SerializeField]
+    UIAnchor anchor_EnemyStats;
 
     int CursorMode;
 
@@ -34,6 +36,7 @@ public class EditorModeManager : MonoBehaviour
 
         enemyCursor.isEnemyCursor = false;
         anchor_EnemyStack.gameObject.SetActive(false);
+        anchor_EnemyStats.gameObject.SetActive(false);
 
     }
 
@@ -60,6 +63,7 @@ public class EditorModeManager : MonoBehaviour
 
                         enemyCursor.isEnemyCursor = true;
                         anchor_EnemyStack.gameObject.SetActive(true);
+                        anchor_EnemyStats.gameObject.SetActive(true);
 
                         label_CursorMode.text = "Cursor : Enemy ";
 
@@ -74,6 +78,7 @@ public class EditorModeManager : MonoBehaviour
 
                         enemyCursor.isEnemyCursor = false;
                         anchor_EnemyStack.gameObject.SetActive(false);
+                        anchor_EnemyStats.gameObject.SetActive(false);
 
                         label_CursorMode.text = "Cursor : Unit";
                         break;

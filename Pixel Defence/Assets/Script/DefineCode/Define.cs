@@ -15,22 +15,43 @@ enum CursorEditMode
     UNIT = 2,
 }
 
+enum EnemyKind
+{
+    DINOTREBLE= 0,
+    MIME= 1,
+    SAMURAI= 2,
+    ZOMBIE = 3,
+    SCIENTISTRIG= 4,
+    PIRATE = 5,
+    CHARACTERANIM= 6,
+    ENEMY_KIND_COUNT= 7,
+}
+
 public struct Enemy
 {
-    public  string name;
+    public string name;
     public int trackNumber;
-    public int hp;
-    public int def;
-    public int speed;
     public float nextGap;
 
     public Enemy(string name, int trackNumber, float nextGap)
     {
         this.name = name;
         this.trackNumber = trackNumber;
-        hp = 0;
-        def = 0;
-        speed = 0;
         this.nextGap = nextGap;
     }
+}
+
+public struct EnemyStats
+{
+    public float hp;
+    public float def;
+    public float speed;
+
+    public EnemyStats(float hp, float def, float speed)
+    {        
+        this.hp = hp;
+        this.def = def;
+        this.speed = speed;
+    }
+  
 }

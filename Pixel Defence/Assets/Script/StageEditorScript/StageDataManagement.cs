@@ -216,4 +216,104 @@ public class StageDataManagement : MonoBehaviour
 
         }
     }
+
+    public void LoadEnemyStats()
+    {
+        string filePath = "";
+#if UNITY_EDITOR
+        filePath = EditorUtility.OpenFilePanel("Load EnemyStats File Dialog"
+                                            , Application.dataPath
+                                            , "xml");
+#endif
+        if (filePath.Length != 0)  // 파일 선택
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(filePath);
+
+            Dictionary<int, EnemyStats> dicEnemyStats = TestPlayManager.Instance.dicEnemyStats;
+
+
+            XmlNodeList nodeList = xmlDoc.SelectNodes("EnemyStats/Stats");
+
+            foreach (XmlNode node in nodeList)
+            {
+                int enemyNo = int.Parse(node.SelectSingleNode("No").InnerText);
+                EnemyStats enemyStats = new EnemyStats(float.Parse(node.SelectSingleNode("Hp").InnerText),
+                                                       float.Parse(node.SelectSingleNode("Def").InnerText),
+                                                       float.Parse(node.SelectSingleNode("Speed").InnerText));
+                if (dicEnemyStats.ContainsKey(enemyNo))
+                {
+                    dicEnemyStats[enemyNo] = enemyStats;
+                }
+                else
+                {
+                    Debug.Log("Enemy Stats Ditionary Key Lost -> Not Update");
+                }
+            }
+            
+            Debug.Log("EnemyStats Xml File  Load Succes!");
+
+        }
+
+    }
+
+    public void SaveEnemyStats()
+    {
+        string filePath = "";
+#if UNITY_EDITOR
+        filePath = EditorUtility.SaveFilePanel("Save EnemyStats File Dialog"
+                                   , Application.dataPath
+                                   , "stats"
+                                   , "xml");
+#endif
+        if (filePath.Length != 0)
+        {
+
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.AppendChild(xmlDoc.CreateXmlDeclaration("1.0", "utf-8", "yes"));
+
+            XmlNode root = xmlDoc.CreateNode(XmlNodeType.Element, "EnemyStats", string.Empty);
+            xmlDoc.AppendChild(root);
+
+            Dictionary<int, EnemyStats> dicEnemyStats = TestPlayManager.Instance.dicEnemyStats;
+
+            /*
+             DINOTREBLE= 0,
+             MIME= 1,
+             SAMURAI= 2,
+             ZOMBIE = 3,
+             SCIENTISTRIG= 4,
+             PIRATE = 5,
+             CHARACTERANIM= 6,
+             */
+
+            for (int i = 0; i < dicEnemyStats.Count; i++)
+            {
+                EnemyStats enemyStats = dicEnemyStats[i];
+               
+                XmlNode childNode = xmlDoc.CreateNode(XmlNodeType.Element, "Stats", string.Empty);
+                root.AppendChild(childNode);
+
+                XmlElement enemyNo = xmlDoc.CreateElement("No");
+                enemyNo.InnerText = i.ToString();
+                childNode.AppendChild(enemyNo);
+
+                XmlElement enemyHp = xmlDoc.CreateElement("Hp");
+                enemyHp.InnerText = enemyStats.hp.ToString();
+                childNode.AppendChild(enemyHp);
+
+                XmlElement enemyDef = xmlDoc.CreateElement("Def");
+                enemyDef.InnerText = enemyStats.def.ToString();
+                childNode.AppendChild(enemyDef);
+
+                XmlElement enemySpeed = xmlDoc.CreateElement("Speed");
+                enemySpeed.InnerText = enemyStats.speed.ToString();
+                childNode.AppendChild(enemySpeed);
+            }
+
+            xmlDoc.Save(filePath);
+            Debug.Log("EnemyStats Xml File  Save Succes!");
+
+        }
+    }
 }

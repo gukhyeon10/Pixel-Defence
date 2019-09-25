@@ -182,6 +182,7 @@ public class TestPlayManager : MonoBehaviour
         input_Speed.value = dicEnemyStats[no].speed.ToString();
     }
 
+    //Enemy 스탯 업데이트
     public void EnemyStatsUpdate(UILabel label_Name, UIInput input_Hp, UIInput input_Def, UIInput input_Speed)
     {
         int no = (int)Enum.Parse(typeof(EnemyKind), label_Name.text);

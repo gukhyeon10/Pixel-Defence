@@ -8,27 +8,33 @@ public class TestEnemyScript : MonoBehaviour
 
     public int trackNumber;   // 트랙 번호
     public int floorCount;    // 이동한 장판 카운트
-    int floorNumber;          // 이동할 장판 번호
     public float nextGap = 2f;  // 다음 유닛 스폰 시간
-    bool isGo = false;      // 트랙 달리기 시작
-    bool isTowardEndFloor;  // 종착점 장판을 가고 있는지
 
-    Dictionary<int, GameObject> dicTrack;  // 트랙 딕셔너리
-    Transform endFloor;     // 종착점 오브젝트
+    protected int floorNumber;          // 이동할 장판 번호
+    protected bool isGo = false;      // 트랙 달리기 시작
+    protected bool isTowardEndFloor;  // 종착점 장판을 가고 있는지
 
-    Vector3 targetPosition;   // 다음 이동 포지션
-    Vector3 initPosition = new Vector3(-1000f, -1000f, -1000f);   // 비활성화 위치
-    Vector3 startPosition;   // 처음 시작 부분
+    protected Dictionary<int, GameObject> dicTrack;  // 트랙 딕셔너리
+    protected Transform endFloor;     // 종착점 오브젝트
+
+    protected Vector3 targetPosition;   // 다음 이동 포지션
+    protected Vector3 initPosition = new Vector3(-1000f, -1000f, -1000f);   // 비활성화 위치
+    protected Vector3 startPosition;   // 처음 시작 부분
 
     public EnemyStats stats;
 
     // Start is called before the first frame update
     void Start()
     {
+        EnemyInit();
+    }
+
+    protected void EnemyInit()
+    {
         testPlayManager = TestPlayManager.Instance;
         dicTrack = new Dictionary<int, GameObject>();
 
-        if(testPlayManager.dicMiddleFloor.ContainsKey(trackNumber))
+        if (testPlayManager.dicMiddleFloor.ContainsKey(trackNumber))
         {
             dicTrack = testPlayManager.dicMiddleFloor[trackNumber];
         }
@@ -43,7 +49,6 @@ public class TestEnemyScript : MonoBehaviour
         }
 
         this.transform.position = initPosition;
-
     }
 
     // 풀링에서 시작floor로 시작
@@ -76,7 +81,7 @@ public class TestEnemyScript : MonoBehaviour
     }
 
     //다음 FLOOR로 이동
-    void MoveFloor()
+    protected void MoveFloor()
     {
         this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, stats.speed * Time.deltaTime);
 
@@ -116,7 +121,7 @@ public class TestEnemyScript : MonoBehaviour
 
 
     //타겟을 향해 부드럽게 회전
-    void RotateToTarget()
+    protected void RotateToTarget()
     {
         Vector3 vec =  targetPosition - this.transform.position;
         float step = stats.speed * Time.deltaTime;

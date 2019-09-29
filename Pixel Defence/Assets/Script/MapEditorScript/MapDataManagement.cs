@@ -35,7 +35,10 @@ public class MapDataManagement : MonoBehaviour {
                 Vector3 position = new Vector3(float.Parse(node.SelectSingleNode("X").InnerText),
                                                float.Parse(node.SelectSingleNode("Y").InnerText),
                                                float.Parse(node.SelectSingleNode("Z").InnerText));
-                Vector3 rotation = new Vector3(0, float.Parse(node.SelectSingleNode("R").InnerText), 0);
+
+                Vector3 rotation = new Vector3(float.Parse(node.SelectSingleNode("RotX").InnerText), 
+                                               float.Parse(node.SelectSingleNode("RotY").InnerText), 
+                                               float.Parse(node.SelectSingleNode("RotZ").InnerText));
 
                 Vector3 scale = new Vector3(float.Parse(node.SelectSingleNode("ScaleX").InnerText),
                                             float.Parse(node.SelectSingleNode("ScaleY").InnerText),
@@ -105,9 +108,17 @@ public class MapDataManagement : MonoBehaviour {
                 z.InnerText = mapChildObject.position.z.ToString();
                 childNode.AppendChild(z);
 
-                XmlElement rotation = xmlDoc.CreateElement("R");
-                rotation.InnerText = mapChildObject.eulerAngles.y.ToString();
-                childNode.AppendChild(rotation);
+                XmlElement rotationX = xmlDoc.CreateElement("RotX");
+                rotationX.InnerText = mapChildObject.eulerAngles.x.ToString();
+                childNode.AppendChild(rotationX);
+
+                XmlElement rotationY = xmlDoc.CreateElement("RotY");
+                rotationY.InnerText = mapChildObject.eulerAngles.y.ToString();
+                childNode.AppendChild(rotationY);
+
+                XmlElement rotationZ = xmlDoc.CreateElement("RotZ");
+                rotationZ.InnerText = mapChildObject.eulerAngles.z.ToString();
+                childNode.AppendChild(rotationZ);
 
                 XmlElement scaleX = xmlDoc.CreateElement("ScaleX");
                 scaleX.InnerText = mapChildObject.localScale.x.ToString();

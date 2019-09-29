@@ -55,3 +55,19 @@ public struct EnemyStats
     }
   
 }
+
+public struct Floor
+{
+    public int trackNumber;
+    public int floorNumber;
+    bool isStart;
+    bool isEnd;
+
+    public void FloorInit(int trackNumber, int floorNumber, bool isStart, bool isEnd)
+    {
+        this.trackNumber = trackNumber;
+        this.floorNumber = floorNumber;
+        this.isStart = isStart;
+        this.isEnd = isEnd;
+    }
+}

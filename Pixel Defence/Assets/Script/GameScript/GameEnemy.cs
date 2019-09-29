@@ -9,6 +9,7 @@ public class GameEnemy : TestEnemyScript
     {
         EnemyInit();
     }
+    
 
     // Update is called once per frame
     void Update()

@@ -45,6 +45,7 @@ public class MapDataManagement : MonoBehaviour {
                 newObject.name = newObject.name.Substring(0, newObject.name.Length - 7);
 
                 newObject.transform.eulerAngles = rotation;
+                newObject.transform.localScale = scale;
                 newObject.transform.parent = MapRoot.transform;
 
                 newObject.tag = node.SelectSingleNode("Tag").InnerText;

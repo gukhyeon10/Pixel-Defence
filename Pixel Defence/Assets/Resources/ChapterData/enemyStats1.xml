@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<EnemyStats>
+  <Stats>
+    <No>0</No>
+    <Hp>10</Hp>
+    <Def>1</Def>
+    <Speed>3</Speed>
+  </Stats>
+  <Stats>
+    <No>1</No>
+    <Hp>6</Hp>
+    <Def>1</Def>
+    <Speed>3.5</Speed>
+  </Stats>
+  <Stats>
+    <No>2</No>
+    <Hp>10</Hp>
+    <Def>1</Def>
+    <Speed>2</Speed>
+  </Stats>
+  <Stats>
+    <No>3</No>
+    <Hp>14</Hp>
+    <Def>1</Def>
+    <Speed>1.6</Speed>
+  </Stats>
+  <Stats>
+    <No>4</No>
+    <Hp>6</Hp>
+    <Def>3</Def>
+    <Speed>1.8</Speed>
+  </Stats>
+  <Stats>
+    <No>5</No>
+    <Hp>10</Hp>
+    <Def>1</Def>
+    <Speed>2</Speed>
+  </Stats>
+  <Stats>
+    <No>6</No>
+    <Hp>10</Hp>
+    <Def>1</Def>
+    <Speed>2</Speed>
+  </Stats>
+</EnemyStats>

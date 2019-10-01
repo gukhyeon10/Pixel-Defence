@@ -229,7 +229,7 @@ public class StageDataManagement : MonoBehaviour
         {
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filePath);
-
+            
             Dictionary<int, EnemyStats> dicEnemyStats = TestPlayManager.Instance.dicEnemyStats;
 
 

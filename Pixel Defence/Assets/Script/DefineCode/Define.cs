@@ -60,14 +60,18 @@ public struct Floor
 {
     public int trackNumber;
     public int floorNumber;
-    bool isStart;
-    bool isEnd;
+    public bool isStart;
+    public bool isEnd;
+    public float x;
+    public float y;
 
-    public void FloorInit(int trackNumber, int floorNumber, bool isStart, bool isEnd)
+    public Floor(int trackNumber, int floorNumber, bool isStart, bool isEnd, float x, float y)
     {
         this.trackNumber = trackNumber;
         this.floorNumber = floorNumber;
         this.isStart = isStart;
         this.isEnd = isEnd;
+        this.x = x;
+        this.y = y;
     }
 }

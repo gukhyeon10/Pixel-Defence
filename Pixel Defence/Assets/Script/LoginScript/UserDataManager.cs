@@ -33,7 +33,7 @@ public class UserDataManager : MonoBehaviour
         this.userName = "QA";
         this.userLevel = 1;
         this.playTime = 0f;
-        this.chapterLimit = 3;
+        this.chapterLimit = 1;
         this.chapterCurrent = 0;
         this.money = 100;
     }

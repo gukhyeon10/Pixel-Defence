@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using System.Xml;
+using System;
 
 public class GameDataManager : MonoBehaviour
 {
@@ -9,18 +11,24 @@ public class GameDataManager : MonoBehaviour
 
     [SerializeField]
     GameObject MapRoot;
+    [SerializeField]
+    GameObject EnemyRoot;
 
     public Dictionary<int, Dictionary<int, Floor>> dicTrack;
-    public List<Enemy> listEnemy;
+    public Dictionary<int, List<Enemy>> dicEnemyInfo;
+    public Dictionary<int, Queue<GameObject>> dicEnemyDeck;
     public Dictionary<int, EnemyStats> dicEnemyStats;
+    
 
     // Start is called before the first frame update
     void Awake()
     {
-        dicTrack = new Dictionary<int, Dictionary<int, Floor>>();
-        listEnemy = new List<Enemy>();
-        dicEnemyStats = new Dictionary<int, EnemyStats>();
         
+        dicTrack = new Dictionary<int, Dictionary<int, Floor>>();
+        dicEnemyInfo = new Dictionary<int, List<Enemy>>();
+        dicEnemyDeck = new Dictionary<int, Queue<GameObject>>();
+        dicEnemyStats = new Dictionary<int, EnemyStats>();
+
     }
     
     public void LoadChapter(int chapterNumber)
@@ -51,19 +59,6 @@ public class GameDataManager : MonoBehaviour
         LoadEnemyStats(xmlDoc.SelectNodes("EnemyStats/Stats"));
 
         Debug.Log("Chapter " + chapterNumber.ToString() + " Load Success!");
-    }
-
-    public void LoadStage(int chapterNumber, int stageNumber)
-    {
-
-        string stage = "stage" + chapterNumber.ToString() + "_" + stageNumber.ToString();
-
-        TextAsset textAsset = (TextAsset)Resources.Load("ChapterData/" + stage);
-
-        XmlDocument xmlDoc = new XmlDocument();
-        xmlDoc.LoadXml(textAsset.text);
-
-        Debug.Log(stage + " Load Success!");
     }
 
 
@@ -111,7 +106,7 @@ public class GameDataManager : MonoBehaviour
             Floor floor;
 
             floor.x = float.Parse(node.SelectSingleNode("X").InnerText);
-            floor.y = float.Parse(node.SelectSingleNode("Z").InnerText);
+            floor.z = float.Parse(node.SelectSingleNode("Z").InnerText);
             
             floor.trackNumber = int.Parse(node.SelectSingleNode("TrackNumber").InnerText);
             floor.floorNumber = int.Parse(node.SelectSingleNode("FloorNumber").InnerText);
@@ -134,6 +129,7 @@ public class GameDataManager : MonoBehaviour
                             Dictionary<int, Floor> newTrack= new Dictionary<int, Floor>();
                             newTrack.Add(0, floor);
                             dicTrack.Add(floor.trackNumber, newTrack);
+
                         }
                         else
                         {
@@ -174,7 +170,7 @@ public class GameDataManager : MonoBehaviour
                         endFloor.floorNumber = floor.floorNumber;
 
                         endFloor.x = floor.x;
-                        endFloor.y = floor.y;
+                        endFloor.z = floor.z;
 
                         break;
                     }
@@ -202,8 +198,122 @@ public class GameDataManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Enemy Stats Ditionary Key Lost -> Not Update");
+                dicEnemyStats.Add(enemyNo, enemyStats);
             }
         }
+    }
+
+    public int LoadStage(int chapterNumber, int stageNumber)
+    {
+
+        string stage = "stage" + chapterNumber.ToString() + "_" + stageNumber.ToString();
+
+        TextAsset textAsset = (TextAsset)Resources.Load("ChapterData/" + stage);
+
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.LoadXml(textAsset.text);
+
+        InitStage();
+        
+        XmlNodeList nodeList = xmlDoc.SelectNodes("EnemyInfo/Enemy");
+
+        foreach (XmlNode node in nodeList)
+        {
+            Enemy enemy = new Enemy(node.SelectSingleNode("EnemyName").InnerText,
+                                    int.Parse(node.SelectSingleNode("TrackNumber").InnerText),
+                                    float.Parse(node.SelectSingleNode("NextGap").InnerText));
+            if (dicEnemyInfo.ContainsKey(enemy.trackNumber))
+            {
+                dicEnemyInfo[enemy.trackNumber].Add(enemy);
+            }
+            else
+            {
+                List<Enemy> enemyList = new List<Enemy>();
+                enemyList.Add(enemy);
+
+                dicEnemyInfo.Add(enemy.trackNumber, enemyList);
+            }
+        }
+
+        Debug.Log(stage + " Load Success!");
+
+        StageStart();
+
+        return nodeList.Count;
+    }
+
+    public void InitStage()
+    {
+        foreach (KeyValuePair<int, List<Enemy>> enemyList in dicEnemyInfo)
+        {
+            enemyList.Value.Clear();
+        }
+
+        foreach (Transform enemy in EnemyRoot.transform)
+        {
+            Destroy(enemy.gameObject);
+        }
+
+        List<int> keyList = dicEnemyDeck.Keys.ToList();
+        for (int i = 0; i < keyList.Count; i++)
+        {
+            for (int j = 0; j < dicEnemyDeck[keyList[i]].Count; j++)
+            {
+                Destroy(dicEnemyDeck[keyList[i]].Dequeue());
+            }
+        }
+        dicEnemyDeck.Clear();
+
+    }
+
+    void StageStart()
+    {
+      
+        List<int> keyList = dicEnemyInfo.Keys.ToList();
+
+        for(int i=0; i<keyList.Count; i++)
+        {
+            foreach (Enemy enemy in dicEnemyInfo[keyList[i]])
+            {
+                int trackNumber = enemy.trackNumber;
+
+                GameObject prefab_Enemy = Resources.Load("Character Resources/" + enemy.name) as GameObject;
+
+                GameObject newEnemy = Instantiate(prefab_Enemy, Vector3.zero, Quaternion.identity, EnemyRoot.transform);
+                
+                GameEnemy gameEnemy = newEnemy.AddComponent<GameEnemy>();
+                gameEnemy.trackNumber = trackNumber;
+                gameEnemy.nextGap = enemy.nextGap;
+                gameEnemy.dicTrack = dicTrack[trackNumber];
+
+                int no = (int)Enum.Parse(typeof(EnemyKind), enemy.name.ToUpper());
+
+                if(dicEnemyStats.ContainsKey(no))
+                {
+                    gameEnemy.stats = dicEnemyStats[no];
+                }
+                else
+                {
+                    gameEnemy.stats = new EnemyStats(10f, 1f, 2f);
+                }
+
+                //해당 트랙의 enemy덱이 존재한다면 push
+                if (dicEnemyDeck.ContainsKey(trackNumber))
+                {
+                    dicEnemyDeck[trackNumber].Enqueue(newEnemy);
+                }
+                //해당 트랙의 enemy덱이 존재하지 않다면 스택 새로 만들고 push한 후 dictionary에 추가
+                else
+                {
+                    Queue<GameObject> newEnemyDeck = new Queue<GameObject>();
+                    newEnemyDeck.Enqueue(newEnemy);
+
+                    dicEnemyDeck.Add(trackNumber, newEnemyDeck);
+                }
+
+            }
+        }
+
+        Debug.Log("Stage Start!!");
     }
 }

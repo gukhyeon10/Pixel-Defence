@@ -10,6 +10,17 @@ public class ChapterManager : MonoBehaviour
     [SerializeField]
     GameObject chapterRoot;
 
+    [SerializeField]
+    GameObject cloud;
+
+    [SerializeField]
+    GameObject EnterButton;
+    [SerializeField]
+    GameObject LockButton;
+
+    [SerializeField]
+    UILabel label_ChapterNumber;
+
     float chapterGap;
 
     int chapterNumber = 1;
@@ -39,8 +50,13 @@ public class ChapterManager : MonoBehaviour
 
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
+        cloud.transform.Translate(Vector3.right * 0.1f);
+        if(cloud.transform.position.x >= 180f + chapterGap)
+        {
+            cloud.transform.position = new Vector3( - 180f - chapterGap, cloud.transform.position.y, cloud.transform.position.z);
+        }
     }
 
     public void NextChapter()
@@ -90,12 +106,38 @@ public class ChapterManager : MonoBehaviour
     IEnumerator ChapterChange(Vector3 targetPos)
     {
         isChange = true;
+        EnterButton.gameObject.SetActive(false);
+        LockButton.gameObject.SetActive(false);
+        label_ChapterNumber.gameObject.SetActive(false);
+
         while(true)
         {
             yield return null;
             if(targetPos== chapterRoot.transform.position)
             {
+
+                label_ChapterNumber.gameObject.SetActive(true);
+                label_ChapterNumber.text = "Chapter " + chapterNumber.ToString();
+
                 isChange = false;
+
+                if(UserDataManager.Instance != null)
+                {
+                    if(UserDataManager.Instance.chapterLimit >= chapterNumber)
+                    {
+                        EnterButton.gameObject.SetActive(true);
+                        
+                    }
+                    else
+                    {
+                        LockButton.gameObject.SetActive(true);
+                    }
+                }
+                else
+                {
+                    EnterButton.gameObject.SetActive(true);
+                }
+
                 break;
             }
             else

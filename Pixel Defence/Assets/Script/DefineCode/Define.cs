@@ -63,15 +63,15 @@ public struct Floor
     public bool isStart;
     public bool isEnd;
     public float x;
-    public float y;
+    public float z;
 
-    public Floor(int trackNumber, int floorNumber, bool isStart, bool isEnd, float x, float y)
+    public Floor(int trackNumber, int floorNumber, bool isStart, bool isEnd, float x, float z)
     {
         this.trackNumber = trackNumber;
         this.floorNumber = floorNumber;
         this.isStart = isStart;
         this.isEnd = isEnd;
         this.x = x;
-        this.y = y;
+        this.z = z;
     }
 }

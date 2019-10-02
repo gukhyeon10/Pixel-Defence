@@ -12,14 +12,14 @@ public class TestEnemyScript : MonoBehaviour
 
     protected int floorNumber;          // 이동할 장판 번호
     protected bool isGo = false;      // 트랙 달리기 시작
-    protected bool isTowardEndFloor;  // 종착점 장판을 가고 있는지
+    private bool isTowardEndFloor;  // 종착점 장판을 가고 있는지
 
-    protected Dictionary<int, GameObject> dicTrack;  // 트랙 딕셔너리
-    protected Transform endFloor;     // 종착점 오브젝트
+    private Dictionary<int, GameObject> dicTrack;  // 트랙 딕셔너리
+    private Transform endFloor;     // 종착점 오브젝트
 
     protected Vector3 targetPosition;   // 다음 이동 포지션
     protected Vector3 initPosition = new Vector3(-1000f, -1000f, -1000f);   // 비활성화 위치
-    protected Vector3 startPosition;   // 처음 시작 부분
+    private Vector3 startPosition;   // 처음 시작 부분
 
     public EnemyStats stats;
 
@@ -29,7 +29,7 @@ public class TestEnemyScript : MonoBehaviour
         EnemyInit();
     }
 
-    protected void EnemyInit()
+    protected virtual void EnemyInit()
     {
         testPlayManager = TestPlayManager.Instance;
         dicTrack = new Dictionary<int, GameObject>();
@@ -52,7 +52,7 @@ public class TestEnemyScript : MonoBehaviour
     }
 
     // 풀링에서 시작floor로 시작
-    public void EnemyStart()
+    public virtual void EnemyStart()
     {
         this.transform.position = startPosition;   // 시작 floor에 위치
 
@@ -81,7 +81,7 @@ public class TestEnemyScript : MonoBehaviour
     }
 
     //다음 FLOOR로 이동
-    protected void MoveFloor()
+    protected virtual void MoveFloor()
     {
         this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, stats.speed * Time.deltaTime);
 

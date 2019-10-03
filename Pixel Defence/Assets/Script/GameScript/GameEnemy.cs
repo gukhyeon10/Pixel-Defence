@@ -33,6 +33,7 @@ public class GameEnemy : TestEnemyScript
 
         this.GetComponent<Animator>().speed = stats.speed / 2f;
 
+        GameMainProcess.totalEnemy++;
 
         GameObject prefab_Portal = Resources.Load("Floor Resources/StartPortal") as GameObject;
         GameObject startPortal = Instantiate(prefab_Portal, this.transform.position, Quaternion.identity);
@@ -68,6 +69,7 @@ public class GameEnemy : TestEnemyScript
                 isGo = false;
                 
                 GameMainProcess.totalEnemy--;
+                
             }
 
             if (dicTrack.ContainsKey(++floorNumber))  // ++를 앞에 해줌으로써 오름차순 floor 탐색 가능

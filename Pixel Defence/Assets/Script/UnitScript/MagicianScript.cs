@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitScript : MonoBehaviour
+public class MagicianScript : UnitScript
 {
-    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        anim = this.GetComponent<Animator>();
-        anim.runtimeAnimatorController = Resources.Load("CharacterAnim/UnitAnim") as RuntimeAnimatorController;
+        UnitInit();
+        EnemyLoad();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        FindTarget();
+        if (target != null)
+        {
+            this.transform.LookAt(target);
+        }
     }
 }

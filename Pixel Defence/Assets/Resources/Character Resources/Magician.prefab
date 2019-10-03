@@ -490,6 +490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000013128743164}
   - component: {fileID: 95000013372779518}
+  - component: {fileID: -6833927819272101163}
   m_Layer: 0
   m_Name: Magician
   m_TagString: Untagged
@@ -535,6 +536,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-6833927819272101163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012699829190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717594603217aa14fb4495f55e42248b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCursor: 1
+  range: 10
+  EnemyRoot: {fileID: 0}
+  list_Enemy: []
 --- !u!1 &1000012777088794
 GameObject:
   m_ObjectHideFlags: 0

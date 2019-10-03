@@ -271,7 +271,7 @@ Transform:
   m_GameObject: {fileID: 393213263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.003220612, y: 0.003220612, z: 0.003220612}
+  m_LocalScale: {x: 0.003215434, y: 0.003215434, z: 0.003215434}
   m_Children:
   - {fileID: 1190738800}
   - {fileID: 2008432010}
@@ -724,6 +724,8 @@ MonoBehaviour:
   gameDataManager: {fileID: 900277360}
   button_Start: {fileID: 408969279}
   SkyBox: {fileID: 264787850}
+  EnemyRoot: {fileID: 1594505488}
+  UnitRoot: {fileID: 2013394676}
 --- !u!114 &900277362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1394,6 +1396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitRoot: {fileID: 2013394676}
+  EnemyRoot: {fileID: 1594505488}
 --- !u!4 &1366540202
 Transform:
   m_ObjectHideFlags: 0
@@ -1549,7 +1552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008432009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 510, y: 310, z: 0}
+  m_LocalPosition: {x: 511, y: 311, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 947755214}

@@ -244,6 +244,7 @@ public class GameDataManager : MonoBehaviour
 
     public void InitStage()
     {
+
         foreach (KeyValuePair<int, List<Enemy>> enemyList in dicEnemyInfo)
         {
             enemyList.Value.Clear();
@@ -264,6 +265,8 @@ public class GameDataManager : MonoBehaviour
         }
         dicEnemyDeck.Clear();
 
+
+
     }
 
     void StageStart()
@@ -280,11 +283,18 @@ public class GameDataManager : MonoBehaviour
                 GameObject prefab_Enemy = Resources.Load("Character Resources/" + enemy.name) as GameObject;
 
                 GameObject newEnemy = Instantiate(prefab_Enemy, Vector3.zero, Quaternion.identity, EnemyRoot.transform);
-                
+
+                BoxCollider boxCollider = newEnemy.AddComponent<BoxCollider>();
+                boxCollider.center = Vector3.up * 6f;
+                boxCollider.size = new Vector3(6f, 12f, 6f);
+                boxCollider.isTrigger = true;
+
                 GameEnemy gameEnemy = newEnemy.AddComponent<GameEnemy>();
                 gameEnemy.trackNumber = trackNumber;
                 gameEnemy.nextGap = enemy.nextGap;
                 gameEnemy.dicTrack = dicTrack[trackNumber];
+
+                
 
                 int no = (int)Enum.Parse(typeof(EnemyKind), enemy.name.ToUpper());
 

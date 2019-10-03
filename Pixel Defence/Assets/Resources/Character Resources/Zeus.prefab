@@ -400,6 +400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000013545758670}
   - component: {fileID: 95000011833174412}
+  - component: {fileID: 461151857200908737}
   m_Layer: 0
   m_Name: Zeus
   m_TagString: Untagged
@@ -445,6 +446,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &461151857200908737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012427598128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8889fba984fc8b140968b9b7ddd17894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCursor: 1
+  range: 10
+  EnemyRoot: {fileID: 0}
+  list_Enemy: []
 --- !u!1 &1000012873780832
 GameObject:
   m_ObjectHideFlags: 0

@@ -98,6 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012759862644}
   - component: {fileID: 95000014110882074}
+  - component: {fileID: -2133503239327885612}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Untagged
@@ -143,6 +144,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-2133503239327885612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010675938078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3246bbaf774772d4694850e9c0aa7d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCursor: 1
+  range: 10
+  EnemyRoot: {fileID: 0}
+  list_Enemy: []
+  target: {fileID: 0}
+  Weapon: {fileID: 131476, guid: 66009ea93fa036c4e830f9f2a4c06a18, type: 3}
 --- !u!1 &1000010761091876
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ TagManager:
   - Unit
   - Enemy
   - Character
+  - EnemySelection
   layers:
   - Default
   - TransparentFX

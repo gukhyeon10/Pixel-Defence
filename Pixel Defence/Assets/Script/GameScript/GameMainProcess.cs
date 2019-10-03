@@ -15,6 +15,11 @@ public class GameMainProcess : MonoBehaviour
     [SerializeField]
     GameObject SkyBox;
 
+    [SerializeField]
+    GameObject EnemyRoot;
+    [SerializeField]
+    GameObject UnitRoot;
+
 
     int stageNumber = 1;
 
@@ -45,6 +50,11 @@ public class GameMainProcess : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Insert))
         {
+            for (int i = 0; i < UnitRoot.transform.childCount; i++)
+            {
+                UnitRoot.transform.GetChild(i).GetComponent<UnitScript>().list_Enemy.Clear();
+            }
+
             StopAllCoroutines();
             gameDataManager.InitStage();
             button_Start.SetActive(true);
@@ -73,11 +83,16 @@ public class GameMainProcess : MonoBehaviour
 
         foreach (KeyValuePair<int, Queue<GameObject>> enemyDeck in gameDataManager.dicEnemyDeck)
         {
-            StartCoroutine(TestPlay(enemyDeck.Value));
+            StartCoroutine(StagePlay(enemyDeck.Value));
+        }
+
+        for(int i= 0; i<UnitRoot.transform.childCount; i++)
+        {
+            UnitRoot.transform.GetChild(i).GetComponent<UnitScript>().EnemyLoad();
         }
     }
 
-    IEnumerator TestPlay(Queue<GameObject> enemyDeck)
+    IEnumerator StagePlay(Queue<GameObject> enemyDeck)
     {
         yield return null;
         foreach (GameObject enemy in enemyDeck)
@@ -91,7 +106,12 @@ public class GameMainProcess : MonoBehaviour
             yield return null;
         }
         Debug.Log("Stage END!");
+        for (int i = 0; i < UnitRoot.transform.childCount; i++)
+        {
+            UnitRoot.transform.GetChild(i).GetComponent<UnitScript>().list_Enemy.Clear();
+        }
 
+        gameDataManager.InitStage();
         button_Start.SetActive(true);
     }
 

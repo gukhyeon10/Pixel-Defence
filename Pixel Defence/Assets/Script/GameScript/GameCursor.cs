@@ -7,6 +7,8 @@ public class GameCursor : MonoBehaviour
 {
     [SerializeField]
     GameObject UnitRoot;
+    [SerializeField]
+    GameObject EnemyRoot;
     
     GameObject CursorUnit = null;
 
@@ -19,6 +21,8 @@ public class GameCursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CursorCancel();
+
         CursorActive();
 
         CursorUpdate();
@@ -26,6 +30,17 @@ public class GameCursor : MonoBehaviour
         CursorSet();
     }
 
+    void CursorCancel()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (CursorUnit != null)
+            {
+                Destroy(CursorUnit);
+                CursorUnit = null;
+            }
+        }
+    }
 
     void CursorActive()
     {
@@ -96,6 +111,7 @@ public class GameCursor : MonoBehaviour
                     break;
                 }
         }
+            
 
         if(isUnit)
         {
@@ -107,7 +123,7 @@ public class GameCursor : MonoBehaviour
 
             GameObject prefab_Unit = Resources.Load(dataPath) as GameObject;
 
-            CursorUnit = Instantiate(prefab_Unit, Vector3.zero, Quaternion.identity, this.transform);
+            CursorUnit = Instantiate(prefab_Unit, Vector3.one * -1000f, Quaternion.identity, this.transform);
         }
     }
 
@@ -136,7 +152,8 @@ public class GameCursor : MonoBehaviour
         {
             GameObject newUnit = Instantiate(CursorUnit, CursorUnit.transform.position, Quaternion.identity, UnitRoot.transform);
 
-            newUnit.AddComponent<GameUnit>();
+            newUnit.GetComponent<UnitScript>().isCursor = false;
+            newUnit.GetComponent<UnitScript>().EnemyRootLoad(EnemyRoot);
 
             Destroy(CursorUnit);
             CursorUnit = null;

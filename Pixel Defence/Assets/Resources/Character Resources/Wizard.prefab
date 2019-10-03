@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000013772309142}
   - component: {fileID: 95000011761690508}
+  - component: {fileID: 4559830100437335952}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Untagged
@@ -176,6 +177,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4559830100437335952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010902234904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb1ccb8771ee2c49b9df7c28373f053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCursor: 1
+  range: 10
+  EnemyRoot: {fileID: 0}
+  list_Enemy: []
+  target: {fileID: 0}
+  Weapon: {fileID: 1991871629315997779, guid: 0c95fdb7a45c93241939215f15e0060c, type: 3}
 --- !u!1 &1000010984944098
 GameObject:
   m_ObjectHideFlags: 0

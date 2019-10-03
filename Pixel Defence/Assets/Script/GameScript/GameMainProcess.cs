@@ -94,6 +94,7 @@ public class GameMainProcess : MonoBehaviour
 
     IEnumerator StagePlay(Queue<GameObject> enemyDeck)
     {
+        totalEnemy = 0;
         yield return null;
         foreach (GameObject enemy in enemyDeck)
         {
@@ -110,6 +111,8 @@ public class GameMainProcess : MonoBehaviour
         {
             UnitRoot.transform.GetChild(i).GetComponent<UnitScript>().list_Enemy.Clear();
         }
+
+        totalEnemy = 0;
 
         gameDataManager.InitStage();
         button_Start.SetActive(true);

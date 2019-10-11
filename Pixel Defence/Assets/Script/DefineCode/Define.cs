@@ -27,6 +27,13 @@ enum EnemyKind
     ENEMY_KIND_COUNT= 7,
 }
 
+public struct User
+{
+    public string name;
+    public string pw;
+    public int chapterLimit;
+}
+
 public struct Enemy
 {
     public string name;

@@ -11,6 +11,8 @@ public class UserDataManager : MonoBehaviour
     public int chapterCurrent;
     public int money;
 
+    public Dictionary<string, User> dicUserList;
+
     static private UserDataManager _instance = null;
 
     static public UserDataManager Instance

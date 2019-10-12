@@ -17,6 +17,8 @@ public class UnitScript : MonoBehaviour
     public List<Transform> list_Enemy;
     public Transform target = null;
 
+    public int price;
+
     protected void UnitInit()
     {
         list_Enemy = new List<Transform>();

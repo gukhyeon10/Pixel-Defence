@@ -7,7 +7,6 @@ using System.Linq;
 
 public class LoginManager : MonoBehaviour
 {
-    Dictionary<string, User> dicUserList;
     
     [SerializeField]
     UIAnchor Anchor_Login;
@@ -21,44 +20,25 @@ public class LoginManager : MonoBehaviour
     [SerializeField]
     UILabel Label_JoinMessage;
 
+    UserDataManager userDataManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        dicUserList = new Dictionary<string, User>();
-        LoadUserList();
-    }
-
-    void LoadUserList()
-    {
-        string strPath = Application.streamingAssetsPath + "/User/UserList.xml";
-
-        XmlDocument xmlDoc = new XmlDocument();
-        xmlDoc.Load(strPath);
-
-        XmlNodeList UserList = xmlDoc.SelectNodes("UserList/User");
-
-        foreach(XmlNode User in UserList)
-        {
-            User user;
-
-            user.name = User.SelectSingleNode("ID").InnerText;
-            user.pw = User.SelectSingleNode("PW").InnerText;
-            user.chapterLimit = int.Parse(User.SelectSingleNode("Chapter").InnerText);
-            dicUserList.Add(user.name, user);
-        }
-
+        userDataManager = UserDataManager.Instance;
     }
     
+    // 아이디 비밀번호 대조 
     public void Login(UIInput id, UIInput pw)
     {
-        if(dicUserList.ContainsKey(id.value))
+        if(userDataManager.dicUserList.ContainsKey(id.value))
         {
-            if(dicUserList[id.value].pw.Equals(pw.value))
+            if(userDataManager.dicUserList[id.value].pw.Equals(pw.value))
             {
                 Label_LoginMessage.text = "로그인 성공!";
-                UserDataManager.Instance.dicUserList = this.dicUserList;
-                UserDataManager.Instance.userName = id.value;
-                UserDataManager.Instance.chapterLimit = this.dicUserList[id.value].chapterLimit;
+                userDataManager.userName = id.value;
+                userDataManager.chapterLimit = userDataManager.dicUserList[id.value].chapterLimit;
+                userDataManager.chapterCurrent = userDataManager.chapterLimit;
                 SceneManager.LoadScene("Chapter Scene");
             }
             else
@@ -73,9 +53,10 @@ public class LoginManager : MonoBehaviour
 
     }
 
+    // 회원가입
     public void JoinUs(UILabel id, UIInput pw, UIInput pwCheck)  // 로컬디비 추가
     {
-        if (dicUserList.ContainsKey(id.text))
+        if (userDataManager.dicUserList.ContainsKey(id.text))
         {
             Label_JoinMessage.text = "이미 있는 아이디 입니다.";
             return;
@@ -91,41 +72,11 @@ public class LoginManager : MonoBehaviour
         newUser.name = id.text;
         newUser.pw = pw.value;
         newUser.chapterLimit = 1;
-        dicUserList.Add(id.text, newUser);
-
-        string strPath = string.Empty;
-        strPath += Application.streamingAssetsPath + "/User/UserList.xml";
-
-        XmlDocument xmlDoc = new XmlDocument();
-        xmlDoc.AppendChild(xmlDoc.CreateXmlDeclaration("1.0", "utf-8", "yes"));
-
-        XmlNode root = xmlDoc.CreateNode(XmlNodeType.Element, "UserList", string.Empty);
-        xmlDoc.AppendChild(root);
-
-        List<string> Keys = dicUserList.Keys.ToList();
-
-        for (int i = 0; i < Keys.Count; i++)
-        {
-            XmlNode user = xmlDoc.CreateNode(XmlNodeType.Element, "User", string.Empty);
-            root.AppendChild(user);
-
-            XmlElement userId = xmlDoc.CreateElement("ID");
-            userId.InnerText = Keys[i];
-            user.AppendChild(userId);
-
-            XmlElement userPw = xmlDoc.CreateElement("PW");
-            userPw.InnerText = dicUserList[Keys[i]].pw;
-            user.AppendChild(userPw);
-
-            XmlElement userChapter = xmlDoc.CreateElement("Chapter");
-            userChapter.InnerText = dicUserList[Keys[i]].chapterLimit.ToString();
-            user.AppendChild(userChapter);
-            
-        }
-
-        xmlDoc.Save(strPath);
+        userDataManager.dicUserList.Add(id.text, newUser);
 
         PanelChange();
+
+        userDataManager.SaveUserList();
 
         Label_JoinMessage.text = "";
         id.text = "ID";
@@ -133,11 +84,23 @@ public class LoginManager : MonoBehaviour
         pwCheck.value = "";
     }
 
+    // 창 전환
     public void PanelChange()
     {
         Anchor_Join.gameObject.SetActive(!Anchor_Join.gameObject.activeSelf);
         Anchor_Login.gameObject.SetActive(!Anchor_Login.gameObject.activeSelf);
     }
 
+    
+    //종료
+    public void Exit()
+    {
+        userDataManager.SaveUserList();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
 
+    }
 }

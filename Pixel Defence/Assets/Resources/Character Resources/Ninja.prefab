@@ -160,6 +160,8 @@ MonoBehaviour:
   range: 10
   EnemyRoot: {fileID: 0}
   list_Enemy: []
+  target: {fileID: 0}
+  price: 280
 --- !u!1 &1000010343256564
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,9 +32,7 @@ public class GameEnemy : TestEnemyScript
         isGo = true;
 
         this.GetComponent<Animator>().speed = stats.speed / 2f;
-
-        GameMainProcess.totalEnemy++;
-
+        
         GameObject prefab_Portal = Resources.Load("Floor Resources/StartPortal") as GameObject;
         GameObject startPortal = Instantiate(prefab_Portal, this.transform.position, Quaternion.identity);
         startPortal.transform.eulerAngles = new Vector3(-90f, 0f, 0f);

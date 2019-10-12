@@ -161,6 +161,7 @@ MonoBehaviour:
   EnemyRoot: {fileID: 0}
   list_Enemy: []
   target: {fileID: 0}
+  price: 320
   Weapon: {fileID: 131476, guid: 66009ea93fa036c4e830f9f2a4c06a18, type: 3}
 --- !u!1 &1000010761091876
 GameObject:

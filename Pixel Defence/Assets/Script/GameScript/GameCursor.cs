@@ -9,6 +9,12 @@ public class GameCursor : MonoBehaviour
     GameObject UnitRoot;
     [SerializeField]
     GameObject EnemyRoot;
+
+    [SerializeField]
+    GameMainProcess gameMainProcess;
+    [SerializeField]
+    UILabel Label_Price;
+
     
     GameObject CursorUnit = null;
 
@@ -38,6 +44,7 @@ public class GameCursor : MonoBehaviour
             {
                 Destroy(CursorUnit);
                 CursorUnit = null;
+                Label_Price.text = string.Empty;
             }
         }
     }
@@ -124,6 +131,7 @@ public class GameCursor : MonoBehaviour
             GameObject prefab_Unit = Resources.Load(dataPath) as GameObject;
 
             CursorUnit = Instantiate(prefab_Unit, Vector3.one * -1000f, Quaternion.identity, this.transform);
+            Label_Price.text = CursorUnit.GetComponent<UnitScript>().price.ToString();
         }
     }
 
@@ -155,8 +163,12 @@ public class GameCursor : MonoBehaviour
             newUnit.GetComponent<UnitScript>().isCursor = false;
             newUnit.GetComponent<UnitScript>().EnemyRootLoad(EnemyRoot);
 
+            Debug.Log(newUnit.GetComponent<UnitScript>().price);
+            gameMainProcess.money -= newUnit.GetComponent<UnitScript>().price;
+
             Destroy(CursorUnit);
             CursorUnit = null;
+            Label_Price.text = string.Empty;
         }
     }
 }

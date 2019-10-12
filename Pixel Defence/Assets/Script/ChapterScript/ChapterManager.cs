@@ -21,6 +21,11 @@ public class ChapterManager : MonoBehaviour
     [SerializeField]
     UILabel label_ChapterNumber;
 
+    [SerializeField]
+    UILabel label_UserName;
+    [SerializeField]
+    UILabel label_Level;
+
     float chapterGap;
 
     int chapterNumber = 1;
@@ -36,21 +41,46 @@ public class ChapterManager : MonoBehaviour
         chapterGap = (float)Screen.width;
 
         Vector3 vec = Camera.main.WorldToScreenPoint(chapter[0].transform.position);
-        Vector3 vec2 = vec;
-        vec2.x = vec2.x + chapterGap;
 
-        chapter[1].transform.position = Camera.main.ScreenToWorldPoint(vec2);
+        for(int i=1; i<chapter.Length; i++)
+        {
+            vec.x += chapterGap;
 
-        Vector3 vec3 = vec2;
-        vec3.x = vec3.x + chapterGap;
-        chapter[2].transform.position = Camera.main.ScreenToWorldPoint(vec3);
+            chapter[i].transform.position = Camera.main.ScreenToWorldPoint(vec);
+        }
 
         chapterGap = chapter[1].transform.position.x - chapter[0].transform.position.x;
 
+        if(UserDataManager.Instance !=null)
+        {
+            Vector3 targetPos = chapterRoot.transform.position;
+            targetPos.x -= chapterGap * (UserDataManager.Instance.chapterCurrent - 1);
+            chapterRoot.transform.position = targetPos;
 
+            chapterNumber = UserDataManager.Instance.chapterCurrent;
+            label_ChapterNumber.text = "Chapter " + chapterNumber.ToString();
+        }
+
+        UserInfoSet();
     }
 
-    private void FixedUpdate()
+    void UserInfoSet()
+    {
+        if(UserDataManager.Instance == null)
+        {
+            return;
+        }
+        else
+        {
+            label_UserName.text = UserDataManager.Instance.userName;
+            label_Level.text = "Lv." + UserDataManager.Instance.chapterLimit.ToString();
+        }
+        
+        
+    }
+
+    //구름이동
+    void FixedUpdate()
     {
         cloud.transform.Translate(Vector3.right * 0.1f);
         if(cloud.transform.position.x >= 180f + chapterGap)
@@ -168,5 +198,10 @@ public class ChapterManager : MonoBehaviour
 
         SceneManager.LoadScene("Game Scene");
 
+    }
+
+    public void BackLoginScene()
+    {
+        SceneManager.LoadScene("Login Scene");
     }
 }

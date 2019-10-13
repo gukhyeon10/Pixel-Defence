@@ -9,7 +9,7 @@ public class AngelWeaponScript : MonoBehaviour
     float direct;
     float speed;
 
-
+    public float attack = 7.7f;
     public void Init(float direct, float speed)
     {
 
@@ -28,9 +28,13 @@ public class AngelWeaponScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.tag.Equals("Enemy"))
+        {
+            other.GetComponent<GameEnemy>().stats.hp -= attack;
+        }
+
         Instantiate(Effect.gameObject, other.transform.position + Vector3.up, Quaternion.identity);
     }
-
     private void OnDestroy()
     {
     }

@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class GameMainProcess : MonoBehaviour
 {
-    public static int totalEnemy;
+    static private GameMainProcess _instance = null;
+
+    static public GameMainProcess Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
+    public int totalEnemy;
 
     [SerializeField]
     GameDataManager gameDataManager;
@@ -22,17 +31,35 @@ public class GameMainProcess : MonoBehaviour
 
     [SerializeField]
     GameObject ClearWindow;
+    [SerializeField]
+    GameObject GameOverWindow;
 
     [SerializeField]
     UILabel Label_Stage;
     [SerializeField]
     UILabel Label_Money;
+    [SerializeField]
+    UILabel Label_Life;
 
     const int maxStageNumber = 10;
     int stageNumber = 1;
 
+    public int life = 50;
     public int money = 0;
     public float moneySpeed = 1f;
+
+    void Awake()
+    {
+        if(_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -57,8 +84,9 @@ public class GameMainProcess : MonoBehaviour
         Label_Stage.text = "STAGE "+stageNumber.ToString();
     }
 
-    private void Update()
+    void Update()
     {
+        //임시 스테이지 스킵 버튼
         if(Input.GetKeyDown(KeyCode.Insert))
         {
             for (int i = 0; i < UnitRoot.transform.childCount; i++)
@@ -74,10 +102,32 @@ public class GameMainProcess : MonoBehaviour
             Label_Stage.text = "STAGE " + stageNumber.ToString();
         }
 
+        if(Input.GetKeyDown(KeyCode.F5))
+        {
+            if(Time.timeScale == 1f)
+            {
+                Time.timeScale = 2f;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+            }
+        }
+
+        //하늘 회전 및 UI갱신
         SkyBox.transform.Rotate(Vector3.up * Time.deltaTime);
+        Label_Life.text = life.ToString();
         Label_Money.text = money.ToString();
+
+        // 게임오버
+        if(life <= 0)
+        {
+            GameOverWindow.gameObject.SetActive(true);
+            Time.timeScale = 1f;
+        }
     }
 
+    //다음 스테이지 시작
     public void NextStageStart()
     {
         button_Start.SetActive(false);
@@ -109,6 +159,7 @@ public class GameMainProcess : MonoBehaviour
         }
     }
 
+    //스테이지 진행
     IEnumerator StagePlay(Queue<GameObject> enemyDeck)
     {
         yield return null;
@@ -123,6 +174,23 @@ public class GameMainProcess : MonoBehaviour
             yield return null;
         }
 
+        if(life > 0)
+        {
+            StartCoroutine(StageClear());
+        }
+        else
+        {
+            StopAllCoroutines();
+        }
+
+    }
+
+    // 스테이지 끝나고 적 사라지는 모션 끝나는거 기다리도록 코루틴 실행
+    IEnumerator StageClear()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+
         Debug.Log("Stage END!");
         for (int i = 0; i < UnitRoot.transform.childCount; i++)
         {
@@ -133,11 +201,13 @@ public class GameMainProcess : MonoBehaviour
 
         gameDataManager.InitStage();
 
-        if(stageNumber > maxStageNumber)
+        if (stageNumber > maxStageNumber)
         {
+            Time.timeScale = 1f;
+
             Debug.Log("Chapter CLEAR!!");
             User userData = UserDataManager.Instance.dicUserList[UserDataManager.Instance.userName];
-            if(userData.chapterLimit <= UserDataManager.Instance.chapterCurrent)
+            if (userData.chapterLimit <= UserDataManager.Instance.chapterCurrent)
             {
                 userData.chapterLimit++;
                 UserDataManager.Instance.dicUserList[userData.name] = userData;
@@ -160,12 +230,13 @@ public class GameMainProcess : MonoBehaviour
         StopAllCoroutines();
     }
 
+    // 돈 쌓이도록
     IEnumerator MoneyUp()
     {
         while(true)
         {
             money++;
-            yield return new WaitForSeconds(moneySpeed);
+            yield return new WaitForSeconds(moneySpeed / 10f);
         }
     }
 

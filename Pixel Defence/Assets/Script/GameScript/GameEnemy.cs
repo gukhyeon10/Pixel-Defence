@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameEnemy : TestEnemyScript
 {
     public Dictionary<int, Floor> dicTrack;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +16,7 @@ public class GameEnemy : TestEnemyScript
     {
         this.transform.position = initPosition;
         isGo = false;
-
-
+        this.tag = "Enemy";
     }
 
     public override void EnemyStart()
@@ -46,6 +46,7 @@ public class GameEnemy : TestEnemyScript
         {
             RotateToTarget();
             MoveFloor();
+            DieCheck();
         }
     }
 
@@ -66,7 +67,8 @@ public class GameEnemy : TestEnemyScript
                 this.transform.position = initPosition;
                 isGo = false;
                 
-                GameMainProcess.totalEnemy--;
+                GameMainProcess.Instance.totalEnemy--;
+                GameMainProcess.Instance.life -= (int)stats.hp;
                 
             }
 
@@ -85,4 +87,13 @@ public class GameEnemy : TestEnemyScript
             
         }
     }
+
+    public float getHp
+    {
+        get
+        {
+            return stats.hp;
+        }
+    }
+
 }

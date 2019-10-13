@@ -9,6 +9,8 @@ public class orb05_green_Script : MonoBehaviour
     Vector3 direct;
     float speed;
 
+    public float attack = 2f;
+
     public void Init(Transform target, float speed)
     {
 
@@ -27,6 +29,10 @@ public class orb05_green_Script : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.tag.Equals("Enemy"))
+        {
+            other.GetComponent<GameEnemy>().stats.hp -= attack;
+        }
         Destroy(this.gameObject);
     }
 

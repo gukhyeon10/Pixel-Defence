@@ -19,6 +19,8 @@ public class UnitScript : MonoBehaviour
 
     public int price;
 
+    GameEnemy TargetEnemy = null;
+
     protected void UnitInit()
     {
         list_Enemy = new List<Transform>();
@@ -51,23 +53,35 @@ public class UnitScript : MonoBehaviour
         {
             for (int i = 0; i < list_Enemy.Count; i++)
             {
-                float distance = Vector3.Distance(list_Enemy[i].transform.position, this.transform.position);
+                Transform Enemy = list_Enemy[i];
+
+                float distance = Vector3.Distance(Enemy.position, this.transform.position);
 
                 if (distance <= range)
                 {
-;
-                    target = list_Enemy[i];
-                    break;
+                    TargetEnemy = Enemy.GetComponent<GameEnemy>();
+                    if (TargetEnemy.getHp > 0f)
+                    {
+                        target = Enemy;
+                        break;
+                    }
+                    else
+                    {
+                        TargetEnemy = null;
+                    }
+                    
                 }
+
             }
 
         }
         else
         {
             float distance = Vector3.Distance(target.position, this.transform.position);
-            if (distance > range)
+            if (distance > range || TargetEnemy.getHp <= 0f)
             {
                 target = null;
+                TargetEnemy = null;
             }
         }
     }

@@ -131,6 +131,25 @@ public class TestEnemyScript : MonoBehaviour
         
     }
 
+    protected void DieCheck()
+    {
+        if(this.stats.hp <= 0f)
+        {
+            Debug.Log(this.name);
+            this.isGo = false;
+
+            this.GetComponent<BoxCollider>().enabled = false;
+
+            if(GameMainProcess.Instance != null)
+            {
+                GameMainProcess.Instance.totalEnemy--;
+            }
+
+            StartCoroutine(DisableEffect());
+        }
+    
+    }
+
     // 종착점을 향한 마지막 이동
     IEnumerator TowardEndFloor()
     {
@@ -146,6 +165,17 @@ public class TestEnemyScript : MonoBehaviour
                 break;
             }
         }
+    }
+
+    // 적 유닛 HP 0일시 작아지게끔
+    IEnumerator DisableEffect()
+    {
+        while(this.transform.localScale.x > 0.01f)
+        {
+            this.transform.localScale *= 0.9f;
+            yield return new WaitForSeconds(0.005f);
+        }
+        this.transform.position = initPosition;
     }
 
     public Vector3 SetStartPosition

@@ -8,6 +8,8 @@ public class Tornado : MonoBehaviour
     GameObject Effect;
     Vector3 direct;
     float speed;
+    
+    public float attack = 5f;
 
     public void Init(Transform target, float speed)
     {
@@ -26,7 +28,10 @@ public class Tornado : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
+        if(other.tag.Equals("Enemy"))
+        {
+            other.GetComponent<GameEnemy>().stats.hp -= attack;
+        }
         Instantiate(Effect, other.transform.position + Vector3.up, Quaternion.identity);
     }
 

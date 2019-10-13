@@ -294,15 +294,13 @@ public class GameDataManager : MonoBehaviour
                 gameEnemy.nextGap = enemy.nextGap;
                 gameEnemy.dicTrack = dicTrack[trackNumber];
 
-                
-
                 int no = (int)Enum.Parse(typeof(EnemyKind), enemy.name.ToUpper());
 
                 if(dicEnemyStats.ContainsKey(no))
                 {
                     gameEnemy.stats = dicEnemyStats[no];
                 }
-                else
+                else // 딕셔너리에 스텟 데이터가 없으면 기본값
                 {
                     gameEnemy.stats = new EnemyStats(10f, 1f, 2f);
                 }

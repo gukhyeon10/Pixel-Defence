@@ -35,4 +35,14 @@
     <PW>ZZZ</PW>
     <Chapter>1</Chapter>
   </User>
+  <User>
+    <ID>A</ID>
+    <PW>A</PW>
+    <Chapter>1</Chapter>
+  </User>
+  <User>
+    <ID>AB</ID>
+    <PW>AB</PW>
+    <Chapter>1</Chapter>
+  </User>
 </UserList>

@@ -149,6 +149,7 @@ public class GameCursor : MonoBehaviour
         {
             if(hitInfo.transform.tag.Equals("Cube"))
             {
+                if(hitInfo.point.y >= hitInfo.transform.position.y + 0.98f)
                 CursorUnit.transform.position = new Vector3(hitInfo.point.x, hitInfo.point.y, hitInfo.point.z);
             }
         }

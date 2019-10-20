@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4400585768954398}
   - component: {fileID: 33932856526379634}
   - component: {fileID: 23507435379239236}
+  - component: {fileID: 2020143599937770026}
   m_Layer: 0
   m_Name: DesertCube01Floor
   m_TagString: Floor
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696995576100380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.89000773, y: 6.2817297, z: 26.456583}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9999999, y: 0.01, z: 0.9999999}
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2020143599937770026
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696995576100380}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 1.9999998, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}

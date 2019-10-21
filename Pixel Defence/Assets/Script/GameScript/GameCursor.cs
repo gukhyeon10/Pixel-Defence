@@ -149,7 +149,7 @@ public class GameCursor : MonoBehaviour
         {
             if(hitInfo.transform.tag.Equals("Cube"))
             {
-                if(hitInfo.point.y >= hitInfo.transform.position.y + 0.98f)
+                if(hitInfo.point.y >= hitInfo.transform.position.y + 0.99f)
                 CursorUnit.transform.position = new Vector3(hitInfo.point.x, hitInfo.point.y, hitInfo.point.z);
             }
         }
@@ -160,7 +160,7 @@ public class GameCursor : MonoBehaviour
         if(CursorUnit != null && Input.GetMouseButton(0))
         {
             GameObject newUnit = Instantiate(CursorUnit, CursorUnit.transform.position, Quaternion.identity, UnitRoot.transform);
-
+            
             newUnit.GetComponent<UnitScript>().isCursor = false;
             newUnit.GetComponent<UnitScript>().EnemyRootLoad(EnemyRoot);
 

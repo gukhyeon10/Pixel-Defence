@@ -57,6 +57,10 @@ public class MapDataManagement : MonoBehaviour {
                 {
                     newObject.AddComponent<BoxCollider>();
                 }
+                else if(newObject.tag.Equals("Floor"))
+                {
+                    newObject.GetComponent<BoxCollider>().enabled = false;
+                }
                 
             }
             

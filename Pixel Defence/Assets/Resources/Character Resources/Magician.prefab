@@ -545,7 +545,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012699829190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 717594603217aa14fb4495f55e42248b, type: 3}
+  m_Script: {fileID: 11500000, guid: f9c850e9d573d334d96cb0f3002194ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isCursor: 1
@@ -553,7 +553,8 @@ MonoBehaviour:
   EnemyRoot: {fileID: 0}
   list_Enemy: []
   target: {fileID: 0}
-  price: 220
+  price: 180
+  Weapon: {fileID: 8585379860910122185, guid: 3a729d779d759df449b8a760af56d09f, type: 3}
 --- !u!1 &1000012777088794
 GameObject:
   m_ObjectHideFlags: 0

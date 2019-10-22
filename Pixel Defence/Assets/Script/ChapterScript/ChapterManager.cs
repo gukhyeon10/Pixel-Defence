@@ -96,7 +96,7 @@ public class ChapterManager : MonoBehaviour
             return;
         }
 
-        if (chapterNumber < 3)
+        if (chapterNumber < 4)
         {
             Vector3 targetPos = chapterRoot.transform.position;
             targetPos.x -= chapterGap;

@@ -23,7 +23,7 @@ enum EnemyKind
     ZOMBIE = 3,
     SCIENTISTRIG= 4,
     PIRATE = 5,
-    CHARACTERANIM= 6,
+    CHARACTERANIMATIONS= 6,
     ENEMY_KIND_COUNT= 7,
 }
 

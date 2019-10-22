@@ -5,7 +5,6 @@ using UnityEngine;
 public class PolicemanScript : UnitScript
 {
     bool isCoolTime = false;
-    float attackSpeed = 0.3f;
 
     [SerializeField]
     GameObject Weapon;

@@ -26,27 +26,32 @@
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>DinoTreble</EnemyName>
+    <EnemyName>CharacterAnimations</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>DinoTreble</EnemyName>
+    <EnemyName>CharacterAnimations</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>DinoTreble</EnemyName>
+    <EnemyName>CharacterAnimations</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>DinoTreble</EnemyName>
+    <EnemyName>CharacterAnimations</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>DinoTreble</EnemyName>
+    <EnemyName>CharacterAnimations</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>CharacterAnimations</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>

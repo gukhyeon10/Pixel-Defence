@@ -10,14 +10,14 @@ public class TestEnemyScript : MonoBehaviour
     public int floorCount;    // 이동한 장판 카운트
     public float nextGap = 2f;  // 다음 유닛 스폰 시간
 
-    protected int floorNumber;          // 이동할 장판 번호
+    public int floorNumber;          // 이동할 장판 번호
     protected bool isGo = false;      // 트랙 달리기 시작
     private bool isTowardEndFloor;  // 종착점 장판을 가고 있는지
 
     private Dictionary<int, GameObject> dicTrack;  // 트랙 딕셔너리
     private Transform endFloor;     // 종착점 오브젝트
 
-    protected Vector3 targetPosition;   // 다음 이동 포지션
+    public Vector3 targetPosition;   // 다음 이동 포지션
     protected Vector3 initPosition = new Vector3(-1000f, -1000f, -1000f);   // 비활성화 위치
     private Vector3 startPosition;   // 처음 시작 부분
 

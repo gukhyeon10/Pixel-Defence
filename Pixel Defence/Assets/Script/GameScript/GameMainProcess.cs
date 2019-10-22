@@ -41,7 +41,14 @@ public class GameMainProcess : MonoBehaviour
     [SerializeField]
     UILabel Label_Life;
 
-    const int maxStageNumber = 10;
+    [SerializeField]
+    AudioSource Audio_BGM;
+    [SerializeField]
+    AudioClip[] Audio_Clip;
+
+    const int maxChapterNumber = 4;
+    const int maxStageNumber = 5;
+
     int stageNumber = 1;
 
     public int life = 50;
@@ -69,6 +76,8 @@ public class GameMainProcess : MonoBehaviour
             Debug.Log("UserData 객체 NULL");
 
             gameDataManager.LoadChapter(1);
+            Audio_BGM.clip = Audio_Clip[0];
+            Audio_BGM.Play();
         }
         else
         {
@@ -80,6 +89,8 @@ public class GameMainProcess : MonoBehaviour
             }
 
             gameDataManager.LoadChapter(chapterNumber);
+            Audio_BGM.clip = Audio_Clip[chapterNumber - 1];
+            Audio_BGM.Play();
         }
         Label_Stage.text = "STAGE "+stageNumber.ToString();
     }
@@ -207,7 +218,7 @@ public class GameMainProcess : MonoBehaviour
 
             Debug.Log("Chapter CLEAR!!");
             User userData = UserDataManager.Instance.dicUserList[UserDataManager.Instance.userName];
-            if (userData.chapterLimit <= UserDataManager.Instance.chapterCurrent)
+            if (userData.chapterLimit < maxChapterNumber && userData.chapterLimit <= UserDataManager.Instance.chapterCurrent)
             {
                 userData.chapterLimit++;
                 UserDataManager.Instance.dicUserList[userData.name] = userData;

@@ -51,24 +51,43 @@ public class UnitScript : MonoBehaviour
     {
         if (target == null)
         {
+            int enemyFloorNumber = -1;
+            float frontEnemyDistance = 0;
             for (int i = 0; i < list_Enemy.Count; i++)
             {
                 Transform Enemy = list_Enemy[i];
 
                 float distance = Vector3.Distance(Enemy.position, this.transform.position);
 
+                // 일단 사정거리 체크
                 if (distance <= range)
                 {
-                    TargetEnemy = Enemy.GetComponent<GameEnemy>();
-                    if (TargetEnemy.getHp > 0f)
+                    GameEnemy TargetEnemyTemp = Enemy.GetComponent<GameEnemy>();
+                    
+                    //HP가 남아있는지
+                    if (TargetEnemyTemp.getHp > 0f)
                     {
-                        target = Enemy;
-                        break;
+                        // 진행 경로가 더 앞서 있는 적 우선순위
+                        if (enemyFloorNumber < TargetEnemyTemp.floorNumber)
+                        {
+                            frontEnemyDistance = Vector3.Distance(TargetEnemyTemp.targetPosition, Enemy.transform.position);
+                            enemyFloorNumber = TargetEnemyTemp.floorNumber;
+                            target = Enemy;
+                            TargetEnemy = TargetEnemyTemp;
+                        } 
+                        // 진행 경로가 동일할 때 그 다음 타깃 경로와 거리가 짧은 적 우선순위   즉, 제일 앞선 적 우선
+                        else if(enemyFloorNumber == TargetEnemyTemp.floorNumber)
+                        {
+                            float frontEnemyDisTemp = Vector3.Distance(TargetEnemyTemp.targetPosition, Enemy.transform.position);
+                            if(frontEnemyDisTemp < frontEnemyDistance)
+                            {
+                                frontEnemyDistance = frontEnemyDisTemp;
+                                target = Enemy;
+                                TargetEnemy = TargetEnemyTemp;
+                            }
+                        }
                     }
-                    else
-                    {
-                        TargetEnemy = null;
-                    }
+                    
                     
                 }
 

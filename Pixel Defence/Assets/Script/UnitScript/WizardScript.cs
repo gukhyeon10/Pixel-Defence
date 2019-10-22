@@ -28,7 +28,7 @@ public class WizardScript : UnitScript
                 SkillObject.transform.eulerAngles = new Vector3(-90f, 0f, 0f);
                 Tornado tornado = SkillObject.GetComponent<Tornado>();
                 tornado.Init(this.target, speed);
-             
+                
                 StartCoroutine(CoolTime());
 
             }

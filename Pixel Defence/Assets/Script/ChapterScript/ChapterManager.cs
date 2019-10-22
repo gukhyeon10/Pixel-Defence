@@ -47,6 +47,11 @@ public class ChapterManager : MonoBehaviour
             vec.x += chapterGap;
 
             chapter[i].transform.position = Camera.main.ScreenToWorldPoint(vec);
+
+            if(i==3)//chapter 4는 위치 조정 필
+            {
+                chapter[i].transform.position = new Vector3(chapter[i].transform.position.x, chapter[i].transform.position.y, 1f);
+            }
         }
 
         chapterGap = chapter[1].transform.position.x - chapter[0].transform.position.x;

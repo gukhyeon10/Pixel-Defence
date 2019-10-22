@@ -7,6 +7,8 @@ public class HeroScript : UnitScript
     bool isCoolTime = false;
     [SerializeField]
     GameObject Weapon;
+    [SerializeField]
+    AudioSource audio;
     
     void Start()
     {
@@ -26,6 +28,8 @@ public class HeroScript : UnitScript
                 //GameObject SkillObject = Instantiate(Weapon, this.transform.position + new Vector3(0f, 2f, 0f), Quaternion.identity);
                 GameObject SkillObject = Instantiate(Weapon, target.transform.position + new Vector3(0f, 2f, 0f), Quaternion.identity);
                 SkillObject.GetComponent<HeroWeaponScript>().Init();
+
+                audio.Play();
 
                 StartCoroutine(CoolTime());
 

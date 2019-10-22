@@ -275,7 +275,7 @@ public class TestPlayManager : MonoBehaviour
                 }
             case "CharacterAnimations":
                 {
-                    stats = dicEnemyStats[(int)EnemyKind.CHARACTERANIM];
+                    stats = dicEnemyStats[(int)EnemyKind.CHARACTERANIMATIONS];
                     break;
                 }
         }

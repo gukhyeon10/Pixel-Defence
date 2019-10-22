@@ -157,19 +157,29 @@ public class GameCursor : MonoBehaviour
 
     void CursorSet()
     {
-        if(CursorUnit != null && Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0) && CursorUnit != null)
         {
+
             GameObject newUnit = Instantiate(CursorUnit, CursorUnit.transform.position, Quaternion.identity, UnitRoot.transform);
             
             newUnit.GetComponent<UnitScript>().isCursor = false;
             newUnit.GetComponent<UnitScript>().EnemyRootLoad(EnemyRoot);
 
             Debug.Log(newUnit.GetComponent<UnitScript>().price);
-            gameMainProcess.money -= newUnit.GetComponent<UnitScript>().price;
+
+            if(gameMainProcess.money >= newUnit.GetComponent<UnitScript>().price)
+            {
+                gameMainProcess.money -= newUnit.GetComponent<UnitScript>().price;
+            }
+            else
+            {
+                Destroy(newUnit);
+            }
 
             Destroy(CursorUnit);
             CursorUnit = null;
             Label_Price.text = string.Empty;
+
         }
     }
 }

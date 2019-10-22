@@ -94,6 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  audio: {fileID: 0}
+  attack: 2.5
 --- !u!135 &778773966177088931
 SphereCollider:
   m_ObjectHideFlags: 0

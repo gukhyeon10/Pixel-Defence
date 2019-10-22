@@ -6,6 +6,7 @@ public class orb05_red_Script : MonoBehaviour
 {
     [SerializeField]
     GameObject Effect;
+
     Vector3 direct;
     float speed;
 

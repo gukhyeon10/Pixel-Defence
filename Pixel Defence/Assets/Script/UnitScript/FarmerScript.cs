@@ -9,6 +9,11 @@ public class FarmerScript : UnitScript
     {
         UnitInit();
         EnemyLoad();
+
+        if (!isCursor)
+        {
+            GameMainProcess.Instance.moneySpeed *= 0.9f;
+        }
     }
 
     // Update is called once per frame

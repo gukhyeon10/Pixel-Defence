@@ -4,48 +4,48 @@
     <FloorName>StartFloor</FloorName>
     <TrackNumber>0</TrackNumber>
     <FloorNumber>-1</FloorNumber>
-    <X>-15.53186</X>
+    <X>-15.59974</X>
     <Y>2</Y>
-    <Z>10</Z>
+    <Z>9.642476</Z>
   </Track>
   <Track>
     <FloorName>MiddleFloor</FloorName>
     <TrackNumber>0</TrackNumber>
     <FloorNumber>0</FloorNumber>
-    <X>9.99</X>
+    <X>9.628666</X>
     <Y>2</Y>
-    <Z>9.96</Z>
+    <Z>9.540254</Z>
   </Track>
   <Track>
     <FloorName>MiddleFloor</FloorName>
     <TrackNumber>0</TrackNumber>
     <FloorNumber>1</FloorNumber>
-    <X>10.02</X>
+    <X>9.538784</X>
     <Y>2</Y>
-    <Z>2.171168</Z>
+    <Z>1.977599</Z>
   </Track>
   <Track>
     <FloorName>MiddleFloor</FloorName>
     <TrackNumber>0</TrackNumber>
     <FloorNumber>2</FloorNumber>
-    <X>-9.87</X>
+    <X>-9.763924</X>
     <Y>2</Y>
-    <Z>1.95</Z>
+    <Z>1.788938</Z>
   </Track>
   <Track>
     <FloorName>MiddleFloor</FloorName>
     <TrackNumber>0</TrackNumber>
     <FloorNumber>3</FloorNumber>
-    <X>-9.86</X>
+    <X>-9.571074</X>
     <Y>2</Y>
-    <Z>-11.76</Z>
+    <Z>-11.98228</Z>
   </Track>
   <Track>
     <FloorName>EndFloor</FloorName>
     <TrackNumber>0</TrackNumber>
     <FloorNumber>-1</FloorNumber>
-    <X>17.74</X>
+    <X>17.40618</X>
     <Y>2</Y>
-    <Z>-11.94</Z>
+    <Z>-11.93963</Z>
   </Track>
 </TrackInfo>

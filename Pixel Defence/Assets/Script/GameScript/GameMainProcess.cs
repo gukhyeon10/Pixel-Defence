@@ -75,6 +75,7 @@ public class GameMainProcess : MonoBehaviour
         {
             Debug.Log("UserData 객체 NULL");
 
+            CameraInit(1);
             gameDataManager.LoadChapter(1);
             Audio_BGM.clip = Audio_Clip[0];
             Audio_BGM.Play();
@@ -88,11 +89,52 @@ public class GameMainProcess : MonoBehaviour
                 return;
             }
 
+            CameraInit(chapterNumber);
             gameDataManager.LoadChapter(chapterNumber);
             Audio_BGM.clip = Audio_Clip[chapterNumber - 1];
             Audio_BGM.Play();
+
         }
         Label_Stage.text = "STAGE "+stageNumber.ToString();
+    }
+
+
+    // 카메라 위치 및 회전값 챕터 별 초기화
+    void CameraInit(int chapterNumber)
+    {
+        Vector3 cameraPosition = Vector3.zero;
+        Vector3 cameraEuler = Vector3.zero;
+        switch (chapterNumber)
+        {
+            case 1:
+                {
+                    cameraPosition = new Vector3(3f, 20f, -20f);
+                    cameraEuler = new Vector3(48f, 0f, 0f);
+                    break;
+                }
+            case 2:
+                {
+                    cameraPosition = new Vector3(32f, 20f, 0f);
+                    cameraEuler = new Vector3(42f, -50f, 0f);
+                    break;
+                }
+            case 3:
+                {
+                    cameraPosition = new Vector3(17f, 17f, 20f);
+                    cameraEuler = new Vector3(37f, -140f, 0f);
+                    break;
+                }
+            case 4:
+                {
+                    cameraPosition = new Vector3(-1f, 24f, -27f);
+                    cameraEuler = new Vector3(41f, 0f, 0f);
+                    break;
+                }
+        }
+
+        Camera.main.transform.position = cameraPosition;
+        Camera.main.transform.eulerAngles = cameraEuler;
+
     }
 
     void Update()

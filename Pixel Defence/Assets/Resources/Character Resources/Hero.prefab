@@ -643,11 +643,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCursor: 1
-  range: 10
+  range: 20
   EnemyRoot: {fileID: 0}
   list_Enemy: []
   target: {fileID: 0}
-  price: 0
+  price: 550
   Weapon: {fileID: 7780800389636166950, guid: 5736479ddbef1584bbea76fe5cc3ad1f, type: 3}
   audio: {fileID: 6549317575671268934}
 --- !u!82 &6549317575671268934

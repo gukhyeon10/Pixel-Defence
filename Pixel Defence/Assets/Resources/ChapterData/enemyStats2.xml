@@ -2,7 +2,7 @@
 <EnemyStats>
   <Stats>
     <No>0</No>
-    <Hp>20</Hp>
+    <Hp>30</Hp>
     <Def>1</Def>
     <Speed>2.5</Speed>
   </Stats>
@@ -14,31 +14,31 @@
   </Stats>
   <Stats>
     <No>2</No>
-    <Hp>80</Hp>
+    <Hp>160</Hp>
     <Def>1</Def>
     <Speed>4</Speed>
   </Stats>
   <Stats>
     <No>3</No>
-    <Hp>100</Hp>
+    <Hp>200</Hp>
     <Def>1</Def>
     <Speed>1.5</Speed>
   </Stats>
   <Stats>
     <No>4</No>
-    <Hp>50</Hp>
+    <Hp>70</Hp>
     <Def>1</Def>
     <Speed>3</Speed>
   </Stats>
   <Stats>
     <No>5</No>
-    <Hp>40</Hp>
+    <Hp>50</Hp>
     <Def>1</Def>
     <Speed>5</Speed>
   </Stats>
   <Stats>
     <No>6</No>
-    <Hp>60</Hp>
+    <Hp>120</Hp>
     <Def>1</Def>
     <Speed>3</Speed>
   </Stats>

@@ -100,7 +100,9 @@ public class GameDataManager : MonoBehaviour
     void LoadTrack(XmlNodeList nodeList)
     {
         Floor endFloor = new Floor(-1, -1, false, true, 0, 0);
-        int maxFloorNumber = 0;
+
+        List<Floor> endFloorList = new List<Floor>();
+        
         foreach (XmlNode node in nodeList)
         {
             Floor floor;
@@ -110,11 +112,7 @@ public class GameDataManager : MonoBehaviour
             
             floor.trackNumber = int.Parse(node.SelectSingleNode("TrackNumber").InnerText);
             floor.floorNumber = int.Parse(node.SelectSingleNode("FloorNumber").InnerText);
-
-            if(floor.floorNumber > maxFloorNumber)
-            {
-                maxFloorNumber = floor.floorNumber;
-            }
+            
 
             switch (node.SelectSingleNode("FloorName").InnerText)
             {
@@ -165,6 +163,8 @@ public class GameDataManager : MonoBehaviour
                     }
                 case "EndFloor":
                     {
+                        floor.isEnd = true;
+                        floor.isStart = false;
 
                         endFloor.trackNumber = floor.trackNumber;
                         endFloor.floorNumber = floor.floorNumber;
@@ -172,15 +172,23 @@ public class GameDataManager : MonoBehaviour
                         endFloor.x = floor.x;
                         endFloor.z = floor.z;
 
+                        endFloorList.Add(floor);
                         break;
                     }
             }
         }
+     
 
-        if(endFloor.trackNumber >= 0 && dicTrack.ContainsKey(endFloor.trackNumber))
+        for(int i=0; i<endFloorList.Count; i++)
         {
-            dicTrack[endFloor.trackNumber].Add(maxFloorNumber+2, endFloor);
+            int trackNumber = endFloorList[i].trackNumber;
+            if (dicTrack.ContainsKey(trackNumber))
+            {
+                dicTrack[trackNumber].Add(dicTrack[trackNumber].Count, endFloorList[i]);
+            }
         }
+
+       
     }
 
     void LoadEnemyStats(XmlNodeList nodeList)

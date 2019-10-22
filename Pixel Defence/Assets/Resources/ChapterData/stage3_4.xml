@@ -1,123 +1,123 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <EnemyInfo>
   <Enemy>
-    <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <EnemyName>Samurai</EnemyName>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>Samurai</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Samurai</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Samurai</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Samurai</EnemyName>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Samurai</EnemyName>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Samurai</EnemyName>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>Samurai</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>Samurai</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Samurai</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Samurai</EnemyName>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Samurai</EnemyName>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Samurai</EnemyName>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Samurai</EnemyName>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>Samurai</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Samurai</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Samurai</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Samurai</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Samurai</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Samurai</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Samurai</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
 </EnemyInfo>

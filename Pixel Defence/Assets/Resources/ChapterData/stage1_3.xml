@@ -3,51 +3,91 @@
   <Enemy>
     <EnemyName>Mime</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>0.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>Mime</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>0.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>Mime</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>0.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>Mime</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>0.5</NextGap>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>Mime</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>0.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>Mime</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>0.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>Mime</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>0.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>Mime</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>0.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>Mime</EnemyName>
+    <EnemyName>Zombie</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>0.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>Mime</EnemyName>
+    <EnemyName>Zombie</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>0.5</NextGap>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
   </Enemy>
 </EnemyInfo>

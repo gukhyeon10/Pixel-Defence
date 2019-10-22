@@ -3,51 +3,81 @@
   <Enemy>
     <EnemyName>DinoTreble</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>1.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>DinoTreble</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>1.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>DinoTreble</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>1.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>DinoTreble</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>1.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>DinoTreble</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>1.5</NextGap>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>DinoTreble</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>1.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>DinoTreble</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>1.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>DinoTreble</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>1.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>DinoTreble</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>1.5</NextGap>
+    <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>DinoTreble</EnemyName>
     <TrackNumber>0</TrackNumber>
-    <NextGap>1.5</NextGap>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
   </Enemy>
 </EnemyInfo>

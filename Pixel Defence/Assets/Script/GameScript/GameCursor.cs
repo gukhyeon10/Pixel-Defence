@@ -17,6 +17,7 @@ public class GameCursor : MonoBehaviour
 
     
     GameObject CursorUnit = null;
+    bool isCube = false;
 
     // Start is called before the first frame update
     void Start()
@@ -149,15 +150,20 @@ public class GameCursor : MonoBehaviour
         {
             if(hitInfo.transform.tag.Equals("Cube"))
             {
+                isCube = true;
                 if(hitInfo.point.y >= hitInfo.transform.position.y + 0.99f)
                 CursorUnit.transform.position = new Vector3(hitInfo.point.x, hitInfo.point.y, hitInfo.point.z);
+            }
+            else
+            {
+                isCube = false;
             }
         }
     }
 
     void CursorSet()
     {
-        if(Input.GetMouseButton(0) && CursorUnit != null)
+        if(Input.GetMouseButton(0) && CursorUnit != null && isCube)
         {
 
             GameObject newUnit = Instantiate(CursorUnit, CursorUnit.transform.position, Quaternion.identity, UnitRoot.transform);

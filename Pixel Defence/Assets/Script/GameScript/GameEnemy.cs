@@ -68,7 +68,7 @@ public class GameEnemy : TestEnemyScript
                 isGo = false;
                 
                 GameMainProcess.Instance.totalEnemy--;
-                GameMainProcess.Instance.life -= (int)stats.hp;
+                GameMainProcess.Instance.life--;
                 
             }
 

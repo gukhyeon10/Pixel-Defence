@@ -8,11 +8,14 @@ public class FarmerScript : UnitScript
     void Start()
     {
         UnitInit();
+
+        this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("CharacterAnim/IntroAnim 1") as RuntimeAnimatorController;
+
         EnemyLoad();
 
         if (!isCursor)
         {
-            GameMainProcess.Instance.moneySpeed *= 0.9f;
+            GameMainProcess.Instance.moneySpeed *= 0.95f;
         }
     }
 

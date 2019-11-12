@@ -7,6 +7,8 @@ public class NinjaScript : UnitScript
     bool isCoolTime = false;
     [SerializeField]
     GameObject Weapon;
+    [SerializeField]
+    float attack;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,19 +49,19 @@ public class NinjaScript : UnitScript
         if (this.target != null)
         {
             GameObject SkillObject = Instantiate(Weapon, this.transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
-            SkillObject.GetComponent<NinjaWeaponScript>().Init(standY, speed * 30f);
+            SkillObject.GetComponent<NinjaWeaponScript>().Init(standY, speed * 30f, attack);
         }
 
         if (this.target != null)
         {
             GameObject SkillObject = Instantiate(Weapon, this.transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
-            SkillObject.GetComponent<NinjaWeaponScript>().Init(standY - 15f, speed * 30f);
+            SkillObject.GetComponent<NinjaWeaponScript>().Init(standY - 15f, speed * 30f, attack * 1.5f);
         }
 
         if (this.target != null)
         {
             GameObject SkillObject = Instantiate(Weapon, this.transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
-            SkillObject.GetComponent<NinjaWeaponScript>().Init(standY + 15f, speed * 30f);
+            SkillObject.GetComponent<NinjaWeaponScript>().Init(standY + 15f, speed * 30f, attack);
         }
 
         yield return null;

@@ -1441,9 +1441,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f92b0011541cad44e903023e2b3a86db, type: 3}
   - {fileID: 8300000, guid: 646aa10d61c74a043bdb26192ddb8711, type: 3}
   - {fileID: 8300000, guid: 9e6335e48aacd9d40a693ddabb12d5e0, type: 3}
-  life: 50
-  money: 0
-  moneySpeed: 1
+  life: 30
+  money: 100
+  moneySpeed: 1.2
 --- !u!114 &900277362
 MonoBehaviour:
   m_ObjectHideFlags: 0

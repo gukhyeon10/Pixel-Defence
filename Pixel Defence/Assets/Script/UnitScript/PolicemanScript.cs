@@ -8,6 +8,8 @@ public class PolicemanScript : UnitScript
 
     [SerializeField]
     GameObject Weapon;
+    [SerializeField]
+    float attack;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,7 @@ public class PolicemanScript : UnitScript
             {
                 GameObject SkillObject = Instantiate(Weapon, this.transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
                 //GameObject SkillObject = Instantiate(Weapon, target.transform.position, Quaternion.identity);
-                SkillObject.GetComponent<PoliceWeaponScript>().Init(this.target, 15f);
+                SkillObject.GetComponent<PoliceWeaponScript>().Init(this.target, 15f, attack);
                 StartCoroutine(CoolTime());
             }
 

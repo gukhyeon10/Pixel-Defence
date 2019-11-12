@@ -9,14 +9,15 @@ public class orb05_green_Script : MonoBehaviour
     Vector3 direct;
     float speed;
 
-    public float attack = 2f;
+    float attack = 2f;
 
-    public void Init(Transform target, float speed)
+    public void Init(Transform target, float speed, float attack)
     {
 
         direct = (target.position - this.transform.position + new Vector3(0f, 2f, 0f)).normalized;
         this.transform.eulerAngles = direct;
         this.speed = speed;
+        this.attack = attack;
         Destroy(this.gameObject, 2f);
 
         

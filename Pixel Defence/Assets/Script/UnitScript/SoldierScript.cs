@@ -7,6 +7,8 @@ public class SoldierScript : UnitScript
     bool isCoolTime = false;
     [SerializeField]
     GameObject Weapon;
+    [SerializeField]
+    float attack;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +49,7 @@ public class SoldierScript : UnitScript
         if(this.target != null)
         {
             GameObject SkillObject = Instantiate(Weapon, this.transform.position + new Vector3(0f, 2f, 0f), Quaternion.identity);
-            SkillObject.GetComponent<orb05_green_Script>().Init(this.target, speed * 15f);
+            SkillObject.GetComponent<orb05_green_Script>().Init(this.target, speed * 15f, attack);
 
         }
         yield return new WaitForSeconds(0.2f);
@@ -55,7 +57,7 @@ public class SoldierScript : UnitScript
         if (this.target != null)
         {
             GameObject SkillObject = Instantiate(Weapon, this.transform.position + new Vector3(0f, 2f, 0f), Quaternion.identity);
-            SkillObject.GetComponent<orb05_green_Script>().Init(this.target, speed * 15f);
+            SkillObject.GetComponent<orb05_green_Script>().Init(this.target, speed * 15f, attack);
 
         }
         yield return new WaitForSeconds(0.2f);
@@ -63,7 +65,7 @@ public class SoldierScript : UnitScript
         if (this.target != null)
         {
             GameObject SkillObject = Instantiate(Weapon, this.transform.position + new Vector3(0f, 2f, 0f), Quaternion.identity);
-            SkillObject.GetComponent<orb05_green_Script>().Init(this.target, speed * 15f);
+            SkillObject.GetComponent<orb05_green_Script>().Init(this.target, speed * 15f, attack * 1.5f);
 
         }
     }

@@ -12,13 +12,14 @@ public class NinjaWeaponScript : MonoBehaviour
 
     public float attack = 5f;
 
-    public void Init(float direct, float speed)
+    public void Init(float direct, float speed, float attack)
     {
         //direct = (target.position - this.transform.position + new Vector3(0f, 2f, 0f)).normalized;
         //Debug.Log(direct);
         //this.transform.eulerAngles = direct;
         this.direct = direct;
         this.speed = speed;
+        this.attack = attack;
         Destroy(this.gameObject, 1f);
     }
 

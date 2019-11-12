@@ -14,13 +14,14 @@ public class Tornado : MonoBehaviour
     Vector3 direct;
     float speed;
     
-    public float attack = 5f;
+    float attack = 5f;
 
-    public void Init(Transform target, float speed)
+    public void Init(Transform target, float speed, float attack)
     {
         direct = (target.position - this.transform.position + new Vector3(0f, 2f, 0f)).normalized;
         this.transform.eulerAngles = direct;
         this.speed = speed;
+        this.attack = attack;
         audio.Play();
         Destroy(this.gameObject, 2f);
     }

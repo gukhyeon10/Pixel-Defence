@@ -157,12 +157,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCursor: 1
-  range: 10
+  speed: 1.5
+  coolTime: 1.4
+  range: 8
   EnemyRoot: {fileID: 0}
   list_Enemy: []
   target: {fileID: 0}
-  price: 150
+  price: 170
   Weapon: {fileID: 1387743542587785, guid: 847305a64b247914ababa1aee5fd8ee0, type: 3}
+  attack: 5.5
 --- !u!1 &1000010343256564
 GameObject:
   m_ObjectHideFlags: 0

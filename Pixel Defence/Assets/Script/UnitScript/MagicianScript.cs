@@ -7,6 +7,8 @@ public class MagicianScript : UnitScript
     bool isCoolTime = false;
     [SerializeField]
     GameObject Weapon;
+    [SerializeField]
+    float attack;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,7 @@ public class MagicianScript : UnitScript
             if (!isCoolTime)
             {
                 GameObject SkillObject = Instantiate(Weapon, this.transform.position + new Vector3(0f, 2f, 0f), Quaternion.identity);
-                SkillObject.GetComponent<MagicWeaponScript>().Init(this.target, speed * 15f);
+                SkillObject.GetComponent<MagicWeaponScript>().Init(this.target, speed * 15f, attack);
                 StartCoroutine(CoolTime());
             }
 

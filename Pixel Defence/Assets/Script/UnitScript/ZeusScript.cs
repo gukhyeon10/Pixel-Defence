@@ -9,7 +9,8 @@ public class ZeusScript : UnitScript
 
     [SerializeField]
     GameObject Weapon;
-
+    [SerializeField]
+    float attack;
     [SerializeField]
     AudioSource audio;
     // Start is called before the first frame update
@@ -31,7 +32,7 @@ public class ZeusScript : UnitScript
             {
                 GameObject SkillObject = Instantiate(Weapon, this.transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
                 //GameObject SkillObject = Instantiate(Weapon, target.transform.position, Quaternion.identity);
-                SkillObject.GetComponent<ZeusWeaponScript>().Init(this.target, 15f);
+                SkillObject.GetComponent<ZeusWeaponScript>().Init(this.target, 15f, attack);
                 StartCoroutine(CoolTime());
                 audio.Play();
             }

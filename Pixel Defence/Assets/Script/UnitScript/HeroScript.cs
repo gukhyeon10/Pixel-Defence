@@ -9,6 +9,8 @@ public class HeroScript : UnitScript
     GameObject Weapon;
     [SerializeField]
     AudioSource audio;
+    [SerializeField]
+    float attack;
     
     void Start()
     {
@@ -27,6 +29,7 @@ public class HeroScript : UnitScript
             {
                 //GameObject SkillObject = Instantiate(Weapon, this.transform.position + new Vector3(0f, 2f, 0f), Quaternion.identity);
                 GameObject SkillObject = Instantiate(Weapon, target.transform.position + new Vector3(0f, 2f, 0f), Quaternion.identity);
+                target.GetComponent<GameEnemy>().stats.hp -= attack;
                 SkillObject.GetComponent<HeroWeaponScript>().Init();
 
                 audio.Play();

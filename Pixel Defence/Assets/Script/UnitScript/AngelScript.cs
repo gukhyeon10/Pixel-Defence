@@ -9,6 +9,8 @@ public class AngelScript : UnitScript
     GameObject Weapon;
     [SerializeField]
     AudioSource audio;
+    [SerializeField]
+    float attack;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +52,7 @@ public class AngelScript : UnitScript
         for(int i=1; i<=6; i++)
         {
             GameObject SkillObject = Instantiate(Weapon, this.transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
-            SkillObject.GetComponent<AngelWeaponScript>().Init(standY + i * 60f, speed * 5f);
+            SkillObject.GetComponent<AngelWeaponScript>().Init(standY + i * 60f, speed * 5f, attack);
         }
 
         yield return null;

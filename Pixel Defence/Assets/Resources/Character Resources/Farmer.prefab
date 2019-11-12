@@ -620,7 +620,7 @@ Animator:
   m_GameObject: {fileID: 1000013570044720}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9d87bc62313b20a4c9fa0332218355b7, type: 3}
-  m_Controller: {fileID: 9100000, guid: 43a6544a173fc1740a98faa66797bc07, type: 2}
+  m_Controller: {fileID: 9100000, guid: b81443a018686bc42a8d16c47c42a93e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -642,6 +642,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCursor: 1
+  speed: 1
+  coolTime: 1
   range: 10
   EnemyRoot: {fileID: 0}
   list_Enemy:
@@ -796,7 +798,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   target: {fileID: 0}
-  price: 250
+  price: 144
 --- !u!1 &1000013673500210
 GameObject:
   m_ObjectHideFlags: 0

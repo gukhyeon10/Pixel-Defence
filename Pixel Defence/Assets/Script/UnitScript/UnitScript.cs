@@ -8,9 +8,9 @@ public class UnitScript : MonoBehaviour
 
     protected Animator anim;
 
-    protected float speed = 1f;
-    protected float coolTime = 1f;
-    protected float attack = 1f;
+    
+    public float speed = 1f;
+    public float coolTime = 1f;
     public float range = 10f;
 
     public GameObject EnemyRoot;

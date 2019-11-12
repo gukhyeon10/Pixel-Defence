@@ -460,12 +460,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCursor: 1
-  range: 10
+  speed: 1
+  coolTime: 1.5
+  range: 12
   EnemyRoot: {fileID: 0}
   list_Enemy: []
   target: {fileID: 0}
-  price: 300
+  price: 455
   Weapon: {fileID: 5122979085023823280, guid: b737161b75bb2b4469f3ff84de265132, type: 3}
+  attack: 20
   audio: {fileID: 4844431744606561311}
 --- !u!82 &4844431744606561311
 AudioSource:

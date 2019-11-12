@@ -1,17 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <EnemyInfo>
   <Enemy>
-    <EnemyName>ScientistRig</EnemyName>
+    <EnemyName>Pirate</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>ScientistRig</EnemyName>
+    <EnemyName>Mime</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
@@ -21,22 +16,17 @@
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>Pirate</EnemyName>
+    <EnemyName>DinoTreble</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>ScientistRig</EnemyName>
+    <EnemyName>Mime</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>ScientistRig</EnemyName>
+    <EnemyName>Mime</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
@@ -46,58 +36,53 @@
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>Pirate</EnemyName>
+    <EnemyName>DinoTreble</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Mime</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>Pirate</EnemyName>
-    <TrackNumber>1</TrackNumber>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>DinoTreble</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>Pirate</EnemyName>
-    <TrackNumber>1</TrackNumber>
+    <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>ScientistRig</EnemyName>
-    <TrackNumber>1</TrackNumber>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>ScientistRig</EnemyName>
-    <TrackNumber>1</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Pirate</EnemyName>
-    <TrackNumber>1</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>1</TrackNumber>
+    <EnemyName>DinoTreble</EnemyName>
+    <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>Pirate</EnemyName>
-    <TrackNumber>1</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>1</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>ScientistRig</EnemyName>
-    <TrackNumber>1</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Pirate</EnemyName>
-    <TrackNumber>1</TrackNumber>
+    <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
 </EnemyInfo>

@@ -91,6 +91,9 @@ public class GameMainProcess : MonoBehaviour
 
             CameraInit(chapterNumber);
             gameDataManager.LoadChapter(chapterNumber);
+
+            this.money += chapterNumber * 30;
+
             Audio_BGM.clip = Audio_Clip[chapterNumber - 1];
             Audio_BGM.Play();
 

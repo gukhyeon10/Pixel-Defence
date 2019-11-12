@@ -11,7 +11,27 @@
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
     <EnemyName>DinoTreble</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
@@ -46,12 +66,7 @@
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>DinoTreble</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>DinoTreble</EnemyName>
+    <EnemyName>Pirate</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
@@ -77,6 +92,36 @@
   </Enemy>
   <Enemy>
     <EnemyName>Mime</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>DinoTreble</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>DinoTreble</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>DinoTreble</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>

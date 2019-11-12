@@ -11,37 +11,7 @@
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>ScientistRig</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>ScientistRig</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Pirate</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Pirate</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Pirate</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Pirate</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>ScientistRig</EnemyName>
+    <EnemyName>Zombie</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
@@ -71,6 +41,36 @@
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
+    <EnemyName>ScientistRig</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>ScientistRig</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>ScientistRig</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
     <EnemyName>Pirate</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
@@ -86,7 +86,7 @@
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>Pirate</EnemyName>
+    <EnemyName>ScientistRig</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
@@ -107,6 +107,31 @@
   </Enemy>
   <Enemy>
     <EnemyName>ScientistRig</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>CharacterAnimations</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>CharacterAnimations</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Samurai</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Samurai</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Samurai</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>

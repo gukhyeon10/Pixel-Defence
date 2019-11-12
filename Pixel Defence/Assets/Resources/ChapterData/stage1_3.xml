@@ -1,22 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <EnemyInfo>
   <Enemy>
-    <EnemyName>Mime</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Mime</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Mime</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Mime</EnemyName>
+    <EnemyName>Zombie</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
@@ -41,22 +26,12 @@
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>Mime</EnemyName>
+    <EnemyName>Pirate</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>Mime</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Mime</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Mime</EnemyName>
+    <EnemyName>Pirate</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
@@ -87,6 +62,76 @@
   </Enemy>
   <Enemy>
     <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Zombie</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>0</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
     <TrackNumber>0</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>

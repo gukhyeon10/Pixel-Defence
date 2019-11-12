@@ -79,7 +79,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   audio: {fileID: 6585668277808938587}
-  attack: 5
 --- !u!82 &6585668277808938587
 AudioSource:
   m_ObjectHideFlags: 0
@@ -92,7 +91,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1550ca165095c9444b17e50f7fa71c0b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.307
+  m_Volume: 0.247
   m_Pitch: 1
   Loop: 0
   Mute: 0

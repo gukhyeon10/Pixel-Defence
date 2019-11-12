@@ -1,53 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <EnemyInfo>
   <Enemy>
-    <EnemyName>ScientistRig</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>ScientistRig</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>Pirate</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>Pirate</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>ScientistRig</EnemyName>
-    <TrackNumber>0</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>ScientistRig</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
     <EnemyName>Pirate</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>Pirate</EnemyName>
-    <TrackNumber>0</TrackNumber>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Mime</EnemyName>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>ScientistRig</EnemyName>
+    <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
@@ -57,6 +47,11 @@
   </Enemy>
   <Enemy>
     <EnemyName>Pirate</EnemyName>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Mime</EnemyName>
     <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
@@ -76,17 +71,7 @@
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>CharacterAnimations</EnemyName>
-    <TrackNumber>1</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Pirate</EnemyName>
-    <TrackNumber>1</TrackNumber>
-    <NextGap>2</NextGap>
-  </Enemy>
-  <Enemy>
-    <EnemyName>CharacterAnimations</EnemyName>
+    <EnemyName>Mime</EnemyName>
     <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>

@@ -7,6 +7,8 @@ public class AlchemisScript : UnitScript
     bool isCoolTime = false;
     [SerializeField]
     GameObject Weapon;
+    [SerializeField]
+    float attack;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,7 @@ public class AlchemisScript : UnitScript
             if(!isCoolTime)
             {
                     GameObject SkillObject = Instantiate(Weapon, this.transform.position + new Vector3(0f, 2f, 0f), Quaternion.identity);
-                    SkillObject.GetComponent<orb05_red_Script>().Init(this.target, speed * 15f);
+                    SkillObject.GetComponent<orb05_red_Script>().Init(this.target, speed * 15f, attack);
 
                     StartCoroutine(CoolTime());
                 

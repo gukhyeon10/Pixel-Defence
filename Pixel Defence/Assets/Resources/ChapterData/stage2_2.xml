@@ -36,7 +36,12 @@
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>Mime</EnemyName>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
     <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
@@ -51,7 +56,7 @@
     <NextGap>2</NextGap>
   </Enemy>
   <Enemy>
-    <EnemyName>ScientistRig</EnemyName>
+    <EnemyName>Mime</EnemyName>
     <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>
@@ -67,6 +72,21 @@
   </Enemy>
   <Enemy>
     <EnemyName>ScientistRig</EnemyName>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>ScientistRig</EnemyName>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
+    <TrackNumber>1</TrackNumber>
+    <NextGap>2</NextGap>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Pirate</EnemyName>
     <TrackNumber>1</TrackNumber>
     <NextGap>2</NextGap>
   </Enemy>

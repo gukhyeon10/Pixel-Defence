@@ -9,12 +9,13 @@ public class AngelWeaponScript : MonoBehaviour
     float direct;
     float speed;
 
-    public float attack = 7.7f;
-    public void Init(float direct, float speed)
+    float attack = 7.7f;
+    public void Init(float direct, float speed, float attack)
     {
 
         this.direct = direct;
         this.speed = speed;
+        this.attack = attack;
         Destroy(this.gameObject, 2f);
 
 

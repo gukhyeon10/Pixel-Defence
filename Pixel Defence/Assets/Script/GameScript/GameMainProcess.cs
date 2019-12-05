@@ -296,4 +296,18 @@ public class GameMainProcess : MonoBehaviour
         }
     }
 
+
+    // 적 유닛 세부 정보창 활성화 변경
+    public void EnemyDetailDialogSetActive()
+    {
+
+    }
+
+    // 적 유닛 세부 정보창
+    public void EnemyDetailDialog()
+    {
+
+    }
+
+
 }

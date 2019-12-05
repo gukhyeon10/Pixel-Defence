@@ -37,6 +37,7 @@ public class GameCursor : MonoBehaviour
         CursorSet();
     }
 
+    // 커서 초기화
     void CursorCancel()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -50,6 +51,7 @@ public class GameCursor : MonoBehaviour
         }
     }
 
+    // 커서에 배치할 유닛(미리보기) 활성화
     void CursorActive()
     {
 
@@ -136,6 +138,7 @@ public class GameCursor : MonoBehaviour
         }
     }
 
+    // 커서 최신화
     void CursorUpdate()
     {
         if(CursorUnit == null)
@@ -160,7 +163,8 @@ public class GameCursor : MonoBehaviour
             }
         }
     }
-
+   
+    //커서 셋팅
     void CursorSet()
     {
         if(Input.GetMouseButton(0) && CursorUnit != null && isCube)
@@ -187,5 +191,11 @@ public class GameCursor : MonoBehaviour
             Label_Price.text = string.Empty;
 
         }
+    }
+
+    //필드의 적 RayCast
+    void CursorRayHitEnemy()
+    {
+
     }
 }

@@ -15,7 +15,9 @@ public class GameCursor : MonoBehaviour
     [SerializeField]
     UILabel Label_Price;
 
-    
+    [SerializeField]
+    EnemyDetailManager enemyDetailManager;
+
     GameObject CursorUnit = null;
     bool isCube = false;
 
@@ -33,6 +35,8 @@ public class GameCursor : MonoBehaviour
         CursorActive();
 
         CursorUpdate();
+
+        CursorRayHitEnemy();
 
         CursorSet();
     }
@@ -161,7 +165,9 @@ public class GameCursor : MonoBehaviour
             {
                 isCube = false;
             }
+
         }
+
     }
    
     //커서 셋팅
@@ -196,6 +202,23 @@ public class GameCursor : MonoBehaviour
     //필드의 적 RayCast
     void CursorRayHitEnemy()
     {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hitInfo;
 
+        if (Physics.Raycast(ray, out hitInfo))
+        {
+            if (hitInfo.transform.tag.Equals("Enemy"))
+            {
+                enemyDetailManager.EnemyDetailActive(true);
+            }
+            else
+            {
+                enemyDetailManager.EnemyDetailActive(false);
+            }
+        }
+        else
+        {
+            return;
+        }
     }
 }

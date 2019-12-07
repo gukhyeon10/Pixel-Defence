@@ -18,7 +18,10 @@ public class GameCursor : MonoBehaviour
     [SerializeField]
     EnemyDetailManager enemyDetailManager;
 
-    GameObject CursorUnit = null;
+    GameObject CursorUnit = null; // 배치할 유닛 (커서에 할당)
+    Transform CursorEnemy = null; // 능력치를 확인할 유닛 (적 캐릭터)
+    GameEnemy gameEnemy = null; // 커서 오버된 적 유닛 능력치 스크립트
+
     bool isCube = false;
 
     // Start is called before the first frame update
@@ -209,11 +212,23 @@ public class GameCursor : MonoBehaviour
         {
             if (hitInfo.transform.tag.Equals("Enemy"))
             {
-                enemyDetailManager.EnemyDetailActive(true);
+                // 기존 가리키고 있는 적과 다른 적 캐릭터를 가리켰다면 참조 객체 갱신
+                if(CursorEnemy != hitInfo.transform)
+                {
+                    CursorEnemy = hitInfo.transform;
+                    gameEnemy = CursorEnemy.GetComponent<GameEnemy>();
+                    enemyDetailManager.EnemyDetailActive(true, gameEnemy.stats, CursorEnemy.name);
+                }
+                else
+                {
+                    enemyDetailManager.EnemyDetailActive(true, gameEnemy.stats, CursorEnemy.name);
+                }
+
+
             }
-            else
+            else // 적을 가리키고 있지 않다면 비활성화
             {
-                enemyDetailManager.EnemyDetailActive(false);
+                enemyDetailManager.EnemyDetailActive(false, new EnemyStats(), string.Empty);
             }
         }
         else

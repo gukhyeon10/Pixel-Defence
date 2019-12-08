@@ -13,6 +13,7 @@ public class EnemyPointScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // y축 기준 자전
         this.transform.Rotate(Vector3.down);
     }
 }

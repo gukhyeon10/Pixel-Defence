@@ -23,6 +23,10 @@ public class GameCursor : MonoBehaviour
 
     GameObject CursorUnit = null; // 배치할 유닛 (커서에 할당)
     Transform CursorEnemy = null; // 능력치를 확인할 유닛 (적 캐릭터)
+
+    Transform ClickEnemy = null;
+    GameEnemy ClickGameEnemy = null;
+
     GameEnemy gameEnemy = null; // 커서 오버된 적 유닛 능력치 스크립트
 
     bool isCube = false;
@@ -42,6 +46,8 @@ public class GameCursor : MonoBehaviour
         CursorActive();
 
         CursorUpdate();
+
+        ClickEnemyActive();
 
         CursorRayHitEnemy();
 
@@ -188,7 +194,7 @@ public class GameCursor : MonoBehaviour
             newUnit.GetComponent<UnitScript>().isCursor = false;
             newUnit.GetComponent<UnitScript>().EnemyRootLoad(EnemyRoot);
 
-            Debug.Log(newUnit.GetComponent<UnitScript>().price);
+            //Debug.Log(newUnit.GetComponent<UnitScript>().price);
 
             if(gameMainProcess.money >= newUnit.GetComponent<UnitScript>().price)
             {
@@ -216,6 +222,7 @@ public class GameCursor : MonoBehaviour
         {
             if (hitInfo.transform.tag.Equals("Enemy"))
             {
+
                 // 기존 가리키고 있는 적과 다른 적 캐릭터를 가리켰다면 참조 객체 갱신
                 if(CursorEnemy != hitInfo.transform)
                 {
@@ -228,20 +235,50 @@ public class GameCursor : MonoBehaviour
                     enemyDetailManager.EnemyDetailActive(true, gameEnemy.stats, CursorEnemy.name);
                 }
 
+                // 적 유닛을 가리키는 화살표 활성화
                 enemyPoint.SetActive(true);
                 enemyPoint.transform.position = CursorEnemy.transform.position + (Vector3.up * 4f);
+
+
+                // 적 유닛 클릭
+                if(Input.GetMouseButtonDown(0))
+                {
+                    Debug.Log("enemy click");
+                }
 
             }
             else // 적을 가리키고 있지 않다면 비활성화
             {
-                enemyDetailManager.EnemyDetailActive(false, new EnemyStats(), string.Empty);
-                enemyPoint.SetActive(false);
+                if(ClickEnemy == null)
+                {
+                    enemyDetailManager.EnemyDetailActive(false, new EnemyStats(), string.Empty);
+                    enemyPoint.SetActive(false);
+                }
             }
         }
         else
         {
-            enemyPoint.SetActive(false);
+            if(ClickEnemy == null)
+            {
+                enemyPoint.SetActive(false);
+            }
             return;
+        }
+    }
+
+    // 클릭한 유닛 디테일 창 고정 활성화
+    void ClickEnemyActive()
+    {
+        // 클릭된 유닛이 존재한다면
+        if(ClickEnemy != null)
+        {
+            enemyPoint.transform.position = ClickEnemy.transform.position + (Vector3.up * 4f);
+            enemyDetailManager.EnemyDetailActive(true, ClickGameEnemy.stats, ClickGameEnemy.name);
+        }
+        else
+        {
+            enemyDetailManager.EnemyDetailActive(false, new EnemyStats(), string.Empty);
+            enemyPoint.SetActive(false);
         }
     }
 }

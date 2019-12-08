@@ -16,6 +16,9 @@ public class GameCursor : MonoBehaviour
     UILabel Label_Price;
 
     [SerializeField]
+    GameObject enemyPoint;
+
+    [SerializeField]
     EnemyDetailManager enemyDetailManager;
 
     GameObject CursorUnit = null; // 배치할 유닛 (커서에 할당)
@@ -27,7 +30,8 @@ public class GameCursor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyPoint = Instantiate(enemyPoint, Vector3.zero, Quaternion.identity, this.transform);
+        enemyPoint.SetActive(false);
     }
 
     // Update is called once per frame
@@ -224,15 +228,19 @@ public class GameCursor : MonoBehaviour
                     enemyDetailManager.EnemyDetailActive(true, gameEnemy.stats, CursorEnemy.name);
                 }
 
+                enemyPoint.SetActive(true);
+                enemyPoint.transform.position = CursorEnemy.transform.position + (Vector3.up * 4f);
 
             }
             else // 적을 가리키고 있지 않다면 비활성화
             {
                 enemyDetailManager.EnemyDetailActive(false, new EnemyStats(), string.Empty);
+                enemyPoint.SetActive(false);
             }
         }
         else
         {
+            enemyPoint.SetActive(false);
             return;
         }
     }

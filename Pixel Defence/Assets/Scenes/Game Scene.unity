@@ -471,7 +471,7 @@ Transform:
   m_GameObject: {fileID: 393213263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.003338898, y: 0.003338898, z: 0.003338898}
+  m_LocalScale: {x: 0.0033333334, y: 0.0033333334, z: 0.0033333334}
   m_Children:
   - {fileID: 1190738800}
   - {fileID: 2008432010}
@@ -3421,6 +3421,7 @@ MonoBehaviour:
   EnemyRoot: {fileID: 1594505488}
   gameMainProcess: {fileID: 900277361}
   Label_Price: {fileID: 1797505818}
+  enemyPoint: {fileID: 1308670467426842, guid: ccfa14f15c9e8124c83268834a90fa07, type: 3}
   enemyDetailManager: {fileID: 1675684055}
 --- !u!4 &1366540202
 Transform:

@@ -96,4 +96,12 @@ public class GameEnemy : TestEnemyScript
         }
     }
 
+    public bool GetIsGo
+    {
+        get
+        {
+            return isGo;
+        }
+    }
+
 }

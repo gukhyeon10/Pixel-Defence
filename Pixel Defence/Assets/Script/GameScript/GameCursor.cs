@@ -243,23 +243,36 @@ public class GameCursor : MonoBehaviour
                 // 적 유닛 클릭
                 if(Input.GetMouseButtonDown(0))
                 {
-                    Debug.Log("enemy click");
+                    ClickEnemy = CursorEnemy;
+                    ClickGameEnemy = ClickEnemy.GetComponent<GameEnemy>();
+                    enemyDetailManager.EnemyDetailActive(true, ClickGameEnemy.stats, ClickEnemy.name);
                 }
 
             }
             else // 적을 가리키고 있지 않다면 비활성화
             {
-                if(ClickEnemy == null)
+                if(ClickEnemy == null || Input.GetMouseButtonDown(0))
                 {
+                    ClickEnemy = null;
+                    ClickGameEnemy = null;
                     enemyDetailManager.EnemyDetailActive(false, new EnemyStats(), string.Empty);
                     enemyPoint.SetActive(false);
                 }
+
+                if(ClickEnemy != null)
+                {
+                    enemyPoint.SetActive(true);
+                    enemyDetailManager.EnemyDetailActive(true, ClickGameEnemy.stats, ClickEnemy.name);
+                }
+
             }
         }
         else
         {
+            // 클릭된 유닛이 없을 경우 초기화
             if(ClickEnemy == null)
             {
+                //enemyDetailManager.EnemyDetailActive(false, new EnemyStats(), string.Empty);
                 enemyPoint.SetActive(false);
             }
             return;
@@ -269,15 +282,25 @@ public class GameCursor : MonoBehaviour
     // 클릭한 유닛 디테일 창 고정 활성화
     void ClickEnemyActive()
     {
+        if(ClickGameEnemy != null)
+        {
+            // 라이프 오버된 적 유닛
+            if(ClickGameEnemy.GetIsGo == false)
+            {
+                ClickEnemy = null;
+                ClickGameEnemy = null;
+            }
+        }
+
         // 클릭된 유닛이 존재한다면
         if(ClickEnemy != null)
         {
-            enemyPoint.transform.position = ClickEnemy.transform.position + (Vector3.up * 4f);
+            enemyPoint.transform.position = ClickEnemy.position + (Vector3.up * 4f);
             enemyDetailManager.EnemyDetailActive(true, ClickGameEnemy.stats, ClickGameEnemy.name);
         }
         else
         {
-            enemyDetailManager.EnemyDetailActive(false, new EnemyStats(), string.Empty);
+            //enemyDetailManager.EnemyDetailActive(false, new EnemyStats(), string.Empty);
             enemyPoint.SetActive(false);
         }
     }

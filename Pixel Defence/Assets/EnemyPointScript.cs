@@ -7,7 +7,7 @@ public class EnemyPointScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //상은 시형 ㅎㅇ
     }
 
     // Update is called once per frame
